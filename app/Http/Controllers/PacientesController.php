@@ -61,6 +61,12 @@ class PacientesController extends Controller
         return view('pacientes.index', compact('pacientes'));
     }
 
+    public function create(){
+        // $campanhas = $this->repository->all();
+        // return view('campanhas.agendamento', compact('campanhas'));
+        return view('pacientes.create');
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -75,7 +81,7 @@ class PacientesController extends Controller
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
-
+            
             $paciente = $this->repository->create($request->all());
 
             $response = [

@@ -18,7 +18,6 @@ class CreateComorbidadesTable extends Migration
 		Schema::create('comorbidades', function(Blueprint $table) {
             $table->increments('id');
 			$table->string('descricao');
-			$table->integer('campanha_id');
             $table->timestamps();
 		});
 	}

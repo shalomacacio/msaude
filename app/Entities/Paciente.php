@@ -20,6 +20,24 @@ class Paciente extends Model implements Transformable
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'cns',
+        'nome',
+        'nome_mae',
+        'cpf',
+        'dt_nascimento',
+        'sexo',
+        'celular',
+        'email',
+        'email_verified_at',
+        'cep',
+        'uf',
+        'bairro',
+        'comp',
+        'rua',
+        'num',
+        'ubs_id',
+        'agen_saude_id',
+    ];
 
 }

@@ -7,39 +7,38 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
-use App\Http\Requests\CampanhaCreateRequest;
-use App\Http\Requests\CampanhaUpdateRequest;
-use App\Repositories\CampanhaRepository;
-use App\Validators\CampanhaValidator;
+use App\Http\Requests\CampanhaAgendamentoCreateRequest;
+use App\Http\Requests\CampanhaAgendamentoUpdateRequest;
+use App\Repositories\CampanhaAgendamentoRepository;
+use App\Validators\CampanhaAgendamentoValidator;
 
 /**
- * Class CampanhasController.
+ * Class CampanhaAgendamentosController.
  *
  * @package namespace App\Http\Controllers;
  */
-class CampanhasController extends Controller
+class CampanhaAgendamentosController extends Controller
 {
     /**
-     * @var CampanhaRepository
+     * @var CampanhaAgendamentoRepository
      */
     protected $repository;
 
     /**
-     * @var CampanhaValidator
+     * @var CampanhaAgendamentoValidator
      */
     protected $validator;
 
     /**
-     * CampanhasController constructor.
+     * CampanhaAgendamentosController constructor.
      *
-     * @param CampanhaRepository $repository
-     * @param CampanhaValidator $validator
+     * @param CampanhaAgendamentoRepository $repository
+     * @param CampanhaAgendamentoValidator $validator
      */
-    public function __construct(CampanhaRepository $repository, CampanhaValidator $validator)
+    public function __construct(CampanhaAgendamentoRepository $repository, CampanhaAgendamentoValidator $validator)
     {
         $this->repository = $repository;
         $this->validator  = $validator;
-        $this->middleware('auth')->except(['agendamento']);
     }
 
     /**
@@ -50,38 +49,44 @@ class CampanhasController extends Controller
     public function index()
     {
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
-        $campanhas = $this->repository->all();
+        $campanhaAgendamentos = $this->repository->all();
 
         if (request()->wantsJson()) {
 
             return response()->json([
-                'data' => $campanhas,
+                'data' => $campanhaAgendamentos,
             ]);
         }
 
-        return view('campanhas.index', compact('campanhas'));
+        return view('campanhaAgendamentos.index', compact('campanhaAgendamentos'));
+    }
+
+    public function create(){
+        // $campanhas = $this->repository->all();
+        // return view('campanhas.agendamento', compact('campanhas'));
+        return view('campanhas.agendamentos.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  CampanhaCreateRequest $request
+     * @param  CampanhaAgendamentoCreateRequest $request
      *
      * @return \Illuminate\Http\Response
      *
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function store(CampanhaCreateRequest $request)
+    public function store(CampanhaAgendamentoCreateRequest $request)
     {
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
 
-            $campanha = $this->repository->create($request->all());
+            $campanhaAgendamento = $this->repository->create($request->all());
 
             $response = [
-                'message' => 'Campanha created.',
-                'data'    => $campanha->toArray(),
+                'message' => 'CampanhaAgendamento created.',
+                'data'    => $campanhaAgendamento->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -111,16 +116,16 @@ class CampanhasController extends Controller
      */
     public function show($id)
     {
-        $campanha = $this->repository->find($id);
+        $campanhaAgendamento = $this->repository->find($id);
 
         if (request()->wantsJson()) {
 
             return response()->json([
-                'data' => $campanha,
+                'data' => $campanhaAgendamento,
             ]);
         }
 
-        return view('campanhas.show', compact('campanha'));
+        return view('campanhaAgendamentos.show', compact('campanhaAgendamento'));
     }
 
     /**
@@ -132,32 +137,32 @@ class CampanhasController extends Controller
      */
     public function edit($id)
     {
-        $campanha = $this->repository->find($id);
+        $campanhaAgendamento = $this->repository->find($id);
 
-        return view('campanhas.edit', compact('campanha'));
+        return view('campanhaAgendamentos.edit', compact('campanhaAgendamento'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  CampanhaUpdateRequest $request
+     * @param  CampanhaAgendamentoUpdateRequest $request
      * @param  string            $id
      *
      * @return Response
      *
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function update(CampanhaUpdateRequest $request, $id)
+    public function update(CampanhaAgendamentoUpdateRequest $request, $id)
     {
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
 
-            $campanha = $this->repository->update($request->all(), $id);
+            $campanhaAgendamento = $this->repository->update($request->all(), $id);
 
             $response = [
-                'message' => 'Campanha updated.',
-                'data'    => $campanha->toArray(),
+                'message' => 'CampanhaAgendamento updated.',
+                'data'    => $campanhaAgendamento->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -195,13 +200,11 @@ class CampanhasController extends Controller
         if (request()->wantsJson()) {
 
             return response()->json([
-                'message' => 'Campanha deleted.',
+                'message' => 'CampanhaAgendamento deleted.',
                 'deleted' => $deleted,
             ]);
         }
 
-        return redirect()->back()->with('message', 'Campanha deleted.');
+        return redirect()->back()->with('message', 'CampanhaAgendamento deleted.');
     }
-
-
 }
