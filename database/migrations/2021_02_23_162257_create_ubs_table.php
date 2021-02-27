@@ -18,17 +18,10 @@ class CreateUbsTable extends Migration
 		Schema::create('ubs', function(Blueprint $table) {
             $table->increments('id');
 			//Dados 
-			$table->string('nome_fantazia');
-            $table->string('razao_social');
+			$table->string('nome_fantasia');
             $table->string('cnes', 7)->unique();
-
-			//Endereço
-            $table->string('cep', 8);
-			$table->string('uf', 2);
-			$table->string('bairro', 50);
-			$table->string('rua', 50);
-			$table->string('num', 8);
-			$table->string('comp', 8);
+            $table->string('endereco');
+			$table->string('bairro');
 
             $table->timestamps();
 		});

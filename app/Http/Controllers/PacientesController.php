@@ -10,6 +10,7 @@ use Prettus\Validator\Exceptions\ValidatorException;
 use App\Http\Requests\PacienteCreateRequest;
 use App\Http\Requests\PacienteUpdateRequest;
 use App\Repositories\PacienteRepository;
+use App\Repositories\UbsRepository;
 use App\Validators\PacienteValidator;
 
 /**
@@ -23,6 +24,7 @@ class PacientesController extends Controller
      * @var PacienteRepository
      */
     protected $repository;
+    protected $ubsRepository;
 
     /**
      * @var PacienteValidator
@@ -35,10 +37,13 @@ class PacientesController extends Controller
      * @param PacienteRepository $repository
      * @param PacienteValidator $validator
      */
-    public function __construct(PacienteRepository $repository, PacienteValidator $validator)
+    public function __construct(
+        PacienteRepository $repository, PacienteValidator $validator,
+        UbsRepository $ubsRepository)
     {
         $this->repository = $repository;
         $this->validator  = $validator;
+        $this->ubsRepository = $ubsRepository;
     }
 
     /**
@@ -52,7 +57,6 @@ class PacientesController extends Controller
         $pacientes = $this->repository->all();
 
         if (request()->wantsJson()) {
-
             return response()->json([
                 'data' => $pacientes,
             ]);
@@ -62,9 +66,8 @@ class PacientesController extends Controller
     }
 
     public function create(){
-        // $campanhas = $this->repository->all();
-        // return view('campanhas.agendamento', compact('campanhas'));
-        return view('pacientes.create');
+        $ubs = $this->ubsRepository->all();
+        return view('pacientes.create', compact('ubs'));
     }
 
     /**

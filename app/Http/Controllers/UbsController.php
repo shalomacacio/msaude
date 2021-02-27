@@ -61,6 +61,10 @@ class UbsController extends Controller
         return view('ubs.index', compact('ubs'));
     }
 
+    public function create(){
+        return view('ubs.create');
+    }
+
     /**
      * Store a newly created resource in storage.
      *

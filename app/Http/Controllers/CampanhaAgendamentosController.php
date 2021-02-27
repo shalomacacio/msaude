@@ -62,8 +62,6 @@ class CampanhaAgendamentosController extends Controller
     }
 
     public function create(){
-        // $campanhas = $this->repository->all();
-        // return view('campanhas.agendamento', compact('campanhas'));
         return view('campanhas.agendamentos.create');
     }
 

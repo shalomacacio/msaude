@@ -1,9 +1,12 @@
-  <header class="bd-header bg-success py-3 d-flex align-items-stretch border-bottom border-dark">
-    <div class="container-fluid d-flex align-items-center">
-      <h1 class="d-flex align-items-center fs-4 text-white mb-0">
-        {{-- <img src="../assets/brand/bootstrap-logo-white.svg" width="38" height="30" class="me-3" > --}}
-        <img class="me-3" src="{{ asset('/site/bootstrap/brand/logo.png') }}"  height="80" alt="logo">
-
-      </h1>
-    </div>
-  </header>
+<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">M-Saúde</a>
+  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <input class="form-control form-control-dark w-100" type="text" placeholder="Buascar" aria-label="Buascar">
+  <ul class="navbar-nav px-3">
+    <li class="nav-item text-nowrap">
+      <a class="nav-link" href="#">Quero Sair </a>
+    </li>
+  </ul>
+</header>

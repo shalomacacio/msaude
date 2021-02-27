@@ -13,10 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () { return view('welcome'); });
+Route::get('/', 'PacienteLoginController@index');
+Route::get('/cns/register', 'PacienteLoginController@create');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
+Route::resource('ubs', 'UbsController');
 Route::resource('campanhas', 'CampanhasController');
 Route::resource('pacientes', 'PacientesController');
 Route::resource('campanhas-agendamentos', 'CampanhaAgendamentosController');
