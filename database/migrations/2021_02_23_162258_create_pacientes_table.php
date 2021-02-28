@@ -18,12 +18,12 @@ class CreatePacientesTable extends Migration
 		Schema::create('pacientes', function(Blueprint $table) {
 			$table->id();
 			//Dados Pessoais
-			$table->string('cns', 7)->unique(); 	//cartao nacional de saude 
+			$table->string('cns', 7)->unique()->nullable();; 	//cartao nacional de saude 
 			$table->string('nome');
-            $table->string('nome_mae');
+            $table->string('nome_mae')->nullable();;
             $table->string('cpf', 11)->unique();
-			$table->date('dt_nascimento');
-			$table->char('sexo', 1);
+			$table->date('dt_nascimento')->nullable();;
+			$table->char('sexo', 1)->nullable();
 			
 			//Contato
 			$table->string('celular', 11);
@@ -31,16 +31,16 @@ class CreatePacientesTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             
 			//Endereço
-            $table->string('cep', 8);
-			$table->string('uf', 2);
-			$table->string('bairro', 50);
-			$table->string('rua', 50);
-			$table->string('num', 8);
-			$table->string('comp', 8);
+            $table->string('cep', 8)->nullable();;
+			$table->string('uf', 2)->nullable();;
+			$table->string('bairro', 50)->nullable();;
+			$table->string('rua', 50)->nullable();;
+			$table->string('num', 8)->nullable();;
+			$table->string('comp', 8)->nullable();;
 
 			//Dados hospitalares
-			$table->bigInteger('ubs_id'); 		 	//unidade basica de saude
-			$table->bigInteger('agen_saude_id');	//agente de saude
+			$table->bigInteger('ubs_id')->nullable();; 		 	//unidade basica de saude
+			$table->bigInteger('agen_saude_id')->nullable();;	//agente de saude
 			
  
             $table->timestamps();

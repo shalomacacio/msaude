@@ -13,8 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'PacienteLoginController@index');
-Route::get('/cns/register', 'PacienteLoginController@create');
+Route::get('/campanhas/login', 'PacienteLoginController@index')->name('campanhas.login');
+Route::get('/authPaciente', 'PacienteLoginController@authPaciente')->name('authPaciente');
+
+Route::get('/campanhas/registro', 'PacienteLoginController@create')->name('campanhas.registro');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
@@ -22,5 +24,3 @@ Route::resource('ubs', 'UbsController');
 Route::resource('campanhas', 'CampanhasController');
 Route::resource('pacientes', 'PacientesController');
 Route::resource('campanhas-agendamentos', 'CampanhaAgendamentosController');
-
-

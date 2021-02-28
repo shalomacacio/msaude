@@ -39,18 +39,22 @@
   <body class="text-center">
     
   <main class="form-signin">
-    <form>
+    <form action="{{ route('authPaciente') }}" method="GET">
       <img class="mb-4" src="{{ asset('site/bootstrap/brand/logo.png') }}" alt="" width="200">
       <h1 class="h3 mb-3 fw-normal">Campanha de Vacinação COVID-19</h1>
+      
       <label for="inputCpf" class="visually-hidden">CPF</label>
       <input type="text" id="inputCpf" class="form-control" placeholder="CPF" name="cpf"  required autofocus>
-      <label for="inputDtNacimento" class="visually-hidden">Data Nascimento</label>
-      <input type="date" id="inputDtNacimento" class="form-control" placeholder="CNS - Cartão SUS" required>
+      
+      <label for="inputCelular" class="visually-hidden">Celular - WhatsApp</label>
+      <input type="text" id="inputCelular" class="form-control" placeholder="Celular" name="celular"  required autofocus>
+       
       <div class="checkbox mb-3">
         <label>
-          <a href="#">Cadastre-se</a>
+          <a href="{{ route('campanhas.registro') }}">Cadastre-se</a>
         </label>
       </div>
+
       <button class="w-100 btn btn-lg btn-primary" type="submit">Consultar</button>
       <p class="mt-5 mb-3 text-muted">&copy; Caffeinne Sistemas</p>
     </form>

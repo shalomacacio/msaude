@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.80.0">
+    <meta name="description" content="Sistema de Gestão Hospitalar">
+    <meta name="author" content="Shalom Acácio">
+    <meta name="generator" content="Hugo 0.20.0">
     <title>M-Saúde</title>
     @include('layouts.partials.site.styles')
   </head>
