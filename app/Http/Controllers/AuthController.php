@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Entities\User;
 use App\Entities\Paciente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Exception;
+use Illuminate\Support\Facades\Validator;
+
 
 
 class AuthController extends Controller
@@ -25,6 +27,30 @@ class AuthController extends Controller
         /**Diret to register page */
         public function register(){
             return view('auth.register');
+        }
+
+        protected function create(Request $request)
+        {
+            try{
+                
+                $dados = $request->validate([
+                    'nome' => 'required',
+                    'cpf' => 'required|cpf|unique:users',
+                    'celular' => 'required|min:11 ',
+                ]);
+
+                User::create([
+                    'nome' => $request->nome,
+                    'cpf' => $request->cpf,
+                    'celular' => $request->celular
+                ]);
+
+                return redirect()->route('login');  
+        
+            } catch (\Illuminate\Validation\ValidationException $e) {
+                dd($e->errors());
+            }
+
         }
 
         public function auth(Request $request){

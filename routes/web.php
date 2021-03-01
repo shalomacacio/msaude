@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'AuthController@login')->name('login');
 Route::post('/auth', 'AuthController@auth')->name('auth');
 Route::get('/register', 'AuthController@register')->name('register');
+Route::post('/create', 'AuthController@create')->name('create');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('ubs', 'UbsController');

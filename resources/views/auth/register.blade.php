@@ -37,7 +37,7 @@
   <body class="text-center">
     
   <main class="form-signin">
-    <form action="{{ route('pacientes.store') }}" method="POST">
+    <form action="{{ route('create') }}" method="POST">
       @csrf
 
       <img class="mb-4" src="{{ asset('site/bootstrap/brand/logo.png') }}" alt="" width="200">
