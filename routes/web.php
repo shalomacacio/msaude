@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,14 +14,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/campanhas/login', 'PacienteLoginController@index')->name('campanhas.login');
-Route::get('/authPaciente', 'PacienteLoginController@authPaciente')->name('authPaciente');
+Route::get('/', 'AuthController@login')->name('login');
+Route::post('/auth', 'AuthController@auth')->name('auth');
+Route::get('/register', 'AuthController@register')->name('register');
 
-Route::get('/campanhas/registro', 'PacienteLoginController@create')->name('campanhas.registro');
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => ['auth']], function () {
+    Route::resource('ubs', 'UbsController');
+    Route::resource('campanhas', 'CampanhasController');
+    Route::resource('pacientes', 'PacientesController');
+    Route::resource('campanhas-agendamentos', 'CampanhaAgendamentosController');
+    Route::get('/campanhas/registro', 'PacienteLoginController@create')->name('campanhas.registro');
+    Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-Route::resource('ubs', 'UbsController');
-Route::resource('campanhas', 'CampanhasController');
-Route::resource('pacientes', 'PacientesController');
-Route::resource('campanhas-agendamentos', 'CampanhaAgendamentosController');
+    //
+    Route::get('/logout', 'AuthController@logout')->name('logout');
+
+});
+
+
+
+

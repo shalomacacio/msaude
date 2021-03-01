@@ -36,7 +36,7 @@
   </div>
   <ul class="nav flex-column">
     <li class="nav-item">
-      <a class="nav-link" href="#">
+      <a class="nav-link" href="{{ route('logout') }}">
       <span data-feather="log-out"></span>
         Sair
       </a>
