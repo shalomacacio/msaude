@@ -21,6 +21,7 @@ class CreateCampanhasTable extends Migration
 			$table->string('descricao');
 			$table->date('dt_inicio');
 			$table->date('dt_fim');
+			$table->boolean('ativa')->default(0);
             $table->timestamps();
 		});
 	}

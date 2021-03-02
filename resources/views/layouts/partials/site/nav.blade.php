@@ -14,15 +14,9 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ route('pacientes.comorbidades')}}">
           <span data-feather="bar-chart-2"></span>
           Dados de Saúde
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span data-feather="calendar"></span>
-          Agendamento
         </a>
       </li>
     </ul>
@@ -35,6 +29,12 @@
     </h6>
   </div>
   <ul class="nav flex-column">
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        <span data-feather="calendar"></span>
+        Resultados
+      </a>
+    </li>
     <li class="nav-item">
       <a class="nav-link" href="{{ route('logout') }}">
       <span data-feather="log-out"></span>

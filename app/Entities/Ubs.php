@@ -21,7 +21,8 @@ class Ubs extends Model implements Transformable
      * @var array
      */
     protected $fillable = [
-        'nome_fantasia',
+        'nome',
+        'unidade',
         'cnes',
         'endereco',
         'bairro'

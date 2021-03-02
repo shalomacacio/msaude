@@ -22,6 +22,9 @@ Route::post('/create', 'AuthController@create')->name('create');
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('ubs', 'UbsController');
     Route::resource('campanhas', 'CampanhasController');
+    Route::get('pacientes/comorbidades', 'PacientesController@comorbidades')->name('pacientes.comorbidades');
+    Route::post('pacientes/comorbCreate', 'PacientesController@comorbCreate')->name('pacientes.comorbCreate');
+
     Route::resource('pacientes', 'PacientesController');
     Route::resource('campanhas-agendamentos', 'CampanhaAgendamentosController');
     Route::get('/campanhas/registro', 'PacienteLoginController@create')->name('campanhas.registro');

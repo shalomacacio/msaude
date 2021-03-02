@@ -7,7 +7,7 @@
 
 <div class="col-md-4">
   <label for="nome" class="form-label">CPF</label>
-  <input type="text" class="form-control " id="cpf" name="cpf">
+  <input type="text" class="form-control " id="cpf"  value="{{ Auth::user()->cpf }}" disabled>
   @include('layouts.partials.validade.feedback')
 </div>
 
@@ -21,7 +21,7 @@
 
 <div class="col-md-8">
   <label for="nome" class="form-label">Nome</label>
-  <input type="text" class="form-control " id="nome" name="nome">
+  <input type="text" class="form-control " id="nome" value="{{ Auth::user()->nome }}" disabled>
   @include('layouts.partials.validade.feedback')
 </div>
 
@@ -42,7 +42,8 @@
 
 <div class="col-md-4">
   <label for="validationCelular" class="form-label">Telefone (WhatsApp) </label>
-  <input type="text" class="form-control " id="validationCelular" name="celular">
+  <input type="text" class="form-control " id="validationCelular" value="{{ Auth::user()->celular }}" disabled>
+  
   @include('layouts.partials.validade.feedback')
 </div>
 
@@ -111,7 +112,9 @@
 <div class="col-md-6">
   <label for="validationUbs" class="form-label">UBS - POSTO DE SAÚDE</label>
   <select class="form-select " id="validationUbs" name="ubs_id">
-    <option selected value="1">Posto do Centro</option>
+    @foreach ($ubs as $u)
+      <option selected value="{{ $u->id }}">{{ $u->nome }}</option>
+    @endforeach
   </select>
   @include('layouts.partials.validade.feedback')
 </div>
@@ -124,3 +127,7 @@
   @include('layouts.partials.validade.feedback')
 </div>
 
+
+<input type="hidden" name="nome" value="{{Auth::user()->nome}}" />
+<input type="hidden" name="cpf" value="{{Auth::user()->cpf}}" />
+<input type="hidden" name="celular" value="{{Auth::user()->celular}}" />

@@ -40,4 +40,8 @@ class Paciente extends Model implements Transformable
         'agen_saude_id',
     ];
 
+    public function comorbidades() {
+        return $this->belongsToMany( Comorbidade::class );
+    }
+
 }

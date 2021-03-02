@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Entities\Paciente;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -9,9 +10,11 @@ use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
 use App\Http\Requests\PacienteCreateRequest;
 use App\Http\Requests\PacienteUpdateRequest;
+use App\Repositories\ComorbidadeRepository;
 use App\Repositories\PacienteRepository;
 use App\Repositories\UbsRepository;
 use App\Validators\PacienteValidator;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class PacientesController.
@@ -25,6 +28,7 @@ class PacientesController extends Controller
      */
     protected $repository;
     protected $ubsRepository;
+    protected $comorbidadeRepository;
 
     /**
      * @var PacienteValidator
@@ -39,11 +43,12 @@ class PacientesController extends Controller
      */
     public function __construct(
         PacienteRepository $repository, PacienteValidator $validator,
-        UbsRepository $ubsRepository)
+        UbsRepository $ubsRepository, ComorbidadeRepository $comorbidadeRepository)
     {
         $this->repository = $repository;
         $this->validator  = $validator;
         $this->ubsRepository = $ubsRepository;
+        $this->comorbidadeRepository = $comorbidadeRepository;
     }
 
     /**
@@ -68,6 +73,24 @@ class PacientesController extends Controller
     public function create(){
         $ubs = $this->ubsRepository->all();
         return view('pacientes.create', compact('ubs'));
+    }
+
+    public function comorbidades(){
+        $comorbidades = $this->comorbidadeRepository->all();
+        return view('pacientes.comorbidades', compact('comorbidades'));
+    }
+
+    public function comorbCreate(Request $request){
+
+        $paciente = $this->repository->findByField('id', Auth::user()->id)->first();
+        $comorbidades = $request->comorbidades;
+        
+        //salva no relacionamento
+        foreach ($comorbidades as $c) {
+            $comorbidade = $this->comorbidadeRepository->find($c);
+            $paciente->comorbidades()->save($comorbidade);
+        }
+        
     }
 
     /**

@@ -85,6 +85,5 @@ class AuthController extends Controller
                 //throw $th;
                 return redirect()->back()->with(['message'=> $e->getMessage()]);
             }
-      
         }
 }
