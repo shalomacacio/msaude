@@ -21,3 +21,4 @@
     <!-- Custom styles for this template -->
     {{-- <link href="dashboard.css" rel="stylesheet"> --}}
     <link rel="stylesheet" href="{{ asset('site/bootstrap/dashboard/dashboard.css') }}">
+    @yield('css')

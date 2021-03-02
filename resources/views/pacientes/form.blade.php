@@ -11,7 +11,7 @@
   @include('layouts.partials.validade.feedback')
 </div>
 
-<div class="col-md-4">
+<div class="col-md-2">
   <label for="validationDtNascimento" class="form-label">Data Nascimento</label>
   <div class="input-group has-validation">
     <input type="date" class="form-control " id="validationDtNascimento"  name="dt_nascimento" aria-describedby="inputGroupPrepend3">
@@ -19,13 +19,7 @@
   </div>
 </div>
 
-<div class="col-md-8">
-  <label for="nome" class="form-label">Nome</label>
-  <input type="text" class="form-control " id="nome" value="{{ Auth::user()->nome }}" disabled>
-  @include('layouts.partials.validade.feedback')
-</div>
-
-<div class="col-md-4">
+<div class="col-md-2">
   <label for="validationSexo" class="form-label">Sexo</label>
   <select class="form-select " id="validationSexo" name="sexo">
     <option selected  value="F">F</option>
@@ -34,28 +28,28 @@
   @include('layouts.partials.validade.feedback')
 </div>
 
-<div class="col-md-12">
+<div class="col-md-6">
+  <label for="nome" class="form-label">Nome</label>
+  <input type="text" class="form-control " id="nome" value="{{ Auth::user()->nome }}" disabled>
+  @include('layouts.partials.validade.feedback')
+</div>
+
+<div class="col-md-6">
   <label for="nome" class="form-label">Nome da Mãe</label>
   <input type="text" class="form-control " id="nome_mae" name="nome_mae">
   @include('layouts.partials.validade.feedback')
 </div>
 
-<div class="col-md-4">
+<div class="col-md-6">
   <label for="validationCelular" class="form-label">Telefone (WhatsApp) </label>
   <input type="text" class="form-control " id="validationCelular" value="{{ Auth::user()->celular }}" disabled>
   
   @include('layouts.partials.validade.feedback')
 </div>
 
-<div class="col-md-4">
+<div class="col-md-6">
   <label for="validationEmail" class="form-label">Email </label>
   <input type="text" class="form-control " id="validationEmail" name="email">
-  @include('layouts.partials.validade.feedback')
-</div>
-
-<div class="col-md-4">
-  <label for="validationEmailVerified" class="form-label">Validar Email </label>
-  <input type="text" class="form-control " id="validationEmailVerified" name="email_veiried_at">
   @include('layouts.partials.validade.feedback')
 </div>
 
