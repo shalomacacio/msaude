@@ -19,7 +19,9 @@
       @include('pacientes.form')
 
       <div class="col-12">
-        <button class="btn btn-primary" type="submit">Enviar Dados</button>
+        @if(!$paciente)
+        <button class="btn btn-lg btn-primary" type="submit">Enviar Dados</button>
+        @endif
       </div>
 
     </form>

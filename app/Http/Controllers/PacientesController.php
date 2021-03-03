@@ -72,7 +72,8 @@ class PacientesController extends Controller
 
     public function create(){
         $ubs = $this->ubsRepository->all();
-        return view('pacientes.create', compact('ubs'));
+        $paciente = $this->repository->findByField('cpf',Auth::user()->cpf)->first();
+        return view('pacientes.create', compact('ubs', 'paciente'));
     }
 
     public function comorbidades(){
