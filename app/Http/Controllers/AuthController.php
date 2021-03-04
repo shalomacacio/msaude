@@ -7,6 +7,7 @@ use App\Entities\User;
 use App\Entities\Paciente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -66,11 +67,10 @@ class AuthController extends Controller
                 $user = User::where('cpf', $request->cpf)->first();
                 
                 if(!$user){
-                    throw new Exception("CPF inválido");
-                    return redirect()->back()->with(['message'=> "CPF não cadastrado"]);
+                    return Redirect::back()->withErrors(['cpf' => 'CPF não encontrado!']);
                 }
                 if($user->celular != $request->get('celular')){
-                    throw new Exception("Celular não cadastrado");
+                    return Redirect::back()->withErrors(['celular' => 'Celular não encontrado!']);
                 }
 
                 $paciente = Paciente::where('cpf', $user->cpf)->first();
@@ -83,6 +83,7 @@ class AuthController extends Controller
                 return redirect()->route('pacientes.index');
             } catch (Exception $e) {
                 //throw $th;
+                
                 return redirect()->back()->with(['message'=> $e->getMessage()]);
             }
         }

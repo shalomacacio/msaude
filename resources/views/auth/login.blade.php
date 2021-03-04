@@ -46,10 +46,16 @@
       
       <label for="inputCpf" class="visually-hidden">CPF</label>
       <input type="text" id="inputCpf" class="form-control" placeholder="CPF" name="cpf"  required autofocus>
-      
+      @error('cpf')
+        {{ $message }}
+      @enderror
+
       <label for="inputCelular" class="visually-hidden">Celular - WhatsApp</label>
       <input type="text" id="inputCelular" class="form-control" placeholder="Celular" name="celular"  required autofocus>
-       
+      @error('celular')
+        {{ $message }}
+      @enderror
+
       <div class="checkbox mb-3">
         <label>
           <a href="{{ route('register') }}">Cadastre-se</a>

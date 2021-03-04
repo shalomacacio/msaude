@@ -8,7 +8,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ route('pacientes.create')}}">
+        <a class="nav-link" href="{{ route('showPaciente')}}">
           <span data-feather="user"></span>
           Dados Pessoais
         </a>
@@ -24,7 +24,6 @@
     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
       <span>Outras Informações</span>
       <a class="link-secondary" href="#" aria-label="Add a new report">
-        <span data-feather="plus-circle"></span>
       </a>
     </h6>
   </div>

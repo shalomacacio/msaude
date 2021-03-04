@@ -25,6 +25,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('pacientes/comorbidades', 'PacientesController@comorbidades')->name('pacientes.comorbidades');
     Route::post('pacientes/comorbCreate', 'PacientesController@comorbCreate')->name('pacientes.comorbCreate');
 
+    Route::get('show-paciente', 'PacientesController@showPaciente')->name('showPaciente');
     Route::resource('pacientes', 'PacientesController');
     Route::resource('campanhas-agendamentos', 'CampanhaAgendamentosController');
     Route::get('/campanhas/registro', 'PacienteLoginController@create')->name('campanhas.registro');

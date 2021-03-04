@@ -44,4 +44,8 @@ class Paciente extends Model implements Transformable
         return $this->belongsToMany( Comorbidade::class );
     }
 
+    public function ubs() {
+        return $this->belongsTo( Ubs::class );
+    }
+
 }

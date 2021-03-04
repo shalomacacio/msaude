@@ -141,15 +141,23 @@ class PacientesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function showPaciente()
     {
-        $paciente = $this->repository->find($id);
+        $cpf = Auth::user()->cpf;
+
+        $paciente = Paciente::where('cpf', $cpf)->first();
 
         if (request()->wantsJson()) {
 
             return response()->json([
                 'data' => $paciente,
             ]);
+        }
+
+        if(!$paciente){
+            $ubs = $this->ubsRepository->all();
+            $paciente = $this->repository->findByField('cpf',Auth::user()->cpf)->first();
+            return view('pacientes.create', compact('ubs', 'paciente'));
         }
 
         return view('pacientes.show', compact('paciente'));
