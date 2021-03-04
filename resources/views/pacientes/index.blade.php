@@ -10,11 +10,11 @@
 
   <div class="bg-light p-5 rounded">
     <h1>Caro Paciente</h1>
-    <p class="lead">Sua solicitação encontra-se em ANDAMENTO. Será disponibilizado nas Mídias Sociais 
-      e Site da PREFEITURA MUNICIPAL, a data em que as solicitações serão ATENDIDAS.  
-      É importante ficar atento as NOTAS INFORMATIVAS ... blá .. blá .. bla´.
-    </p>
-    <a class="btn btn-lg btn-primary" href="#" role="button">Consultar Agendamento </a>
+    <p class="lead">Instruções de uso do sistema </p>
+    <p class="lead">Informar sobre ficar atento as respostas do sistema </p>
+    <p class="lead">Orientar sobre confirmar o agendamento </p>
+    <p class="lead">Informar que a resposta do sistema estará a disposição no aplicativo </p>
+    <a class="btn btn-lg btn-primary" href="#" role="button">Consultar Resultados </a>
   </div>
   
 </main>

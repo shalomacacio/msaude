@@ -14,7 +14,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ route('pacientes.comorbidades')}}">
+        <a class="nav-link" href="{{ route('showComorb')}}">
           <span data-feather="bar-chart-2"></span>
           Dados de Saúde
         </a>

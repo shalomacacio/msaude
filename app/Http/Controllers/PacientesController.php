@@ -92,6 +92,7 @@ class PacientesController extends Controller
             $paciente->comorbidades()->save($comorbidade);
         }
         
+        return redirect()->route('showComorb');
     }
 
     /**
@@ -156,12 +157,39 @@ class PacientesController extends Controller
 
         if(!$paciente){
             $ubs = $this->ubsRepository->all();
-            $paciente = $this->repository->findByField('cpf',Auth::user()->cpf)->first();
             return view('pacientes.create', compact('ubs', 'paciente'));
         }
 
         return view('pacientes.show', compact('paciente'));
     }
+
+
+    public function showComorb()
+    {
+        $cpf = Auth::user()->cpf;
+
+        $paciente = Paciente::where('cpf', $cpf)->first();
+
+        if (request()->wantsJson()) {
+
+            return response()->json([
+                'data' => $paciente,
+            ]);
+        }
+
+        if(!$paciente){
+            return redirect()->back()->withErrors(['message'=>'você ainda não completou seu cadastro']);
+        }
+
+        if(count($paciente->comorbidades) <= 0){
+            $comorbidades = $this->comorbidadeRepository->all();
+            return view('pacientes.comorbidades', compact('paciente', 'comorbidades'));
+        }
+
+        return view('pacientes.showComorb', compact('paciente'));
+    }
+
+    
 
     /**
      * Show the form for editing the specified resource.
