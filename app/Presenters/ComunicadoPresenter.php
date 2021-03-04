@@ -2,15 +2,15 @@
 
 namespace App\Presenters;
 
-use App\Transformers\CampanhaAgendamentoTransformer;
+use App\Transformers\ComunicadoTransformer;
 use Prettus\Repository\Presenter\FractalPresenter;
 
 /**
- * Class CampanhaAgendamentoPresenter.
+ * Class ComunicadoPresenter.
  *
  * @package namespace App\Presenters;
  */
-class CampanhaAgendamentoPresenter extends FractalPresenter
+class ComunicadoPresenter extends FractalPresenter
 {
     /**
      * Transformer
@@ -19,6 +19,6 @@ class CampanhaAgendamentoPresenter extends FractalPresenter
      */
     public function getTransformer()
     {
-        return new CampanhaAgendamentoTransformer();
+        return new ComunicadoTransformer();
     }
 }

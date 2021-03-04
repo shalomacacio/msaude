@@ -3,23 +3,23 @@
 namespace App\Transformers;
 
 use League\Fractal\TransformerAbstract;
-use App\Entities\CampanhaAgendamento;
+use App\Entities\Comunicado;
 
 /**
- * Class CampanhaAgendamentoTransformer.
+ * Class ComunicadoTransformer.
  *
  * @package namespace App\Transformers;
  */
-class CampanhaAgendamentoTransformer extends TransformerAbstract
+class ComunicadoTransformer extends TransformerAbstract
 {
     /**
-     * Transform the CampanhaAgendamento entity.
+     * Transform the Comunicado entity.
      *
-     * @param \App\Entities\CampanhaAgendamento $model
+     * @param \App\Entities\Comunicado $model
      *
      * @return array
      */
-    public function transform(CampanhaAgendamento $model)
+    public function transform(Comunicado $model)
     {
         return [
             'id'         => (int) $model->id,

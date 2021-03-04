@@ -26,8 +26,8 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(\App\Repositories\PacienteRepository::class, \App\Repositories\PacienteRepositoryEloquent::class);
         $this->app->bind(\App\Repositories\UbsRepository::class, \App\Repositories\UbsRepositoryEloquent::class);
         $this->app->bind(\App\Repositories\ComorbidadeRepository::class, \App\Repositories\ComorbidadeRepositoryEloquent::class);
-        $this->app->bind(\App\Repositories\CampanhaRepository::class, \App\Repositories\CampanhaRepositoryEloquent::class);
-        $this->app->bind(\App\Repositories\CampanhaAgendamentoRepository::class, \App\Repositories\CampanhaAgendamentoRepositoryEloquent::class);
+        $this->app->bind(\App\Repositories\CampanhaRepository::class, \App\Repositories\CampanhaRepositoryEloquent::class);        
+        $this->app->bind(\App\Repositories\ComunicadoRepository::class, \App\Repositories\ComunicadoRepositoryEloquent::class);
         //:end-bindings:
     }
 }

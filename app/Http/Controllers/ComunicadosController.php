@@ -7,38 +7,42 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
-use App\Http\Requests\CampanhaAgendamentoCreateRequest;
-use App\Http\Requests\CampanhaAgendamentoUpdateRequest;
-use App\Repositories\CampanhaAgendamentoRepository;
-use App\Validators\CampanhaAgendamentoValidator;
+use App\Http\Requests\ComunicadoCreateRequest;
+use App\Http\Requests\ComunicadoUpdateRequest;
+use App\Repositories\ComunicadoRepository;
+use App\Repositories\PacienteRepository;
+use App\Validators\ComunicadoValidator;
+
 
 /**
- * Class CampanhaAgendamentosController.
+ * Class ComunicadosController.
  *
  * @package namespace App\Http\Controllers;
  */
-class CampanhaAgendamentosController extends Controller
+class ComunicadosController extends Controller
 {
     /**
-     * @var CampanhaAgendamentoRepository
+     * @var ComunicadoRepository
      */
     protected $repository;
+    protected $pacienteRepository;
 
     /**
-     * @var CampanhaAgendamentoValidator
+     * @var ComunicadoValidator
      */
     protected $validator;
 
     /**
-     * CampanhaAgendamentosController constructor.
+     * ComunicadosController constructor.
      *
-     * @param CampanhaAgendamentoRepository $repository
-     * @param CampanhaAgendamentoValidator $validator
+     * @param ComunicadoRepository $repository
+     * @param ComunicadoValidator $validator
      */
-    public function __construct(CampanhaAgendamentoRepository $repository, CampanhaAgendamentoValidator $validator)
+    public function __construct(ComunicadoRepository $repository, ComunicadoValidator $validator, PacienteRepository $pacienteRepository)
     {
         $this->repository = $repository;
         $this->validator  = $validator;
+        $this->pacienteRepository = $pacienteRepository;
     }
 
     /**
@@ -49,42 +53,38 @@ class CampanhaAgendamentosController extends Controller
     public function index()
     {
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
-        $campanhaAgendamentos = $this->repository->all();
+        $comunicados = $this->repository->all();
 
         if (request()->wantsJson()) {
 
             return response()->json([
-                'data' => $campanhaAgendamentos,
+                'data' => $comunicados,
             ]);
         }
 
-        return view('campanhaAgendamentos.index', compact('campanhaAgendamentos'));
-    }
-
-    public function create(){
-        return view('campanhas.agendamentos.create');
+        return view('comunicados.index', compact('comunicados'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  CampanhaAgendamentoCreateRequest $request
+     * @param  ComunicadoCreateRequest $request
      *
      * @return \Illuminate\Http\Response
      *
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function store(CampanhaAgendamentoCreateRequest $request)
+    public function store(ComunicadoCreateRequest $request)
     {
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
 
-            $campanhaAgendamento = $this->repository->create($request->all());
+            $comunicado = $this->repository->create($request->all());
 
             $response = [
-                'message' => 'CampanhaAgendamento created.',
-                'data'    => $campanhaAgendamento->toArray(),
+                'message' => 'Comunicado created.',
+                'data'    => $comunicado->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -114,16 +114,16 @@ class CampanhaAgendamentosController extends Controller
      */
     public function show($id)
     {
-        $campanhaAgendamento = $this->repository->find($id);
+        $comunicado = $this->repository->find($id);
 
         if (request()->wantsJson()) {
 
             return response()->json([
-                'data' => $campanhaAgendamento,
+                'data' => $comunicado,
             ]);
         }
 
-        return view('campanhaAgendamentos.show', compact('campanhaAgendamento'));
+        return view('comunicados.show', compact('comunicado'));
     }
 
     /**
@@ -135,32 +135,32 @@ class CampanhaAgendamentosController extends Controller
      */
     public function edit($id)
     {
-        $campanhaAgendamento = $this->repository->find($id);
+        $comunicado = $this->repository->find($id);
 
-        return view('campanhaAgendamentos.edit', compact('campanhaAgendamento'));
+        return view('comunicados.edit', compact('comunicado'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  CampanhaAgendamentoUpdateRequest $request
+     * @param  ComunicadoUpdateRequest $request
      * @param  string            $id
      *
      * @return Response
      *
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function update(CampanhaAgendamentoUpdateRequest $request, $id)
+    public function update(ComunicadoUpdateRequest $request, $id)
     {
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
 
-            $campanhaAgendamento = $this->repository->update($request->all(), $id);
+            $comunicado = $this->repository->update($request->all(), $id);
 
             $response = [
-                'message' => 'CampanhaAgendamento updated.',
-                'data'    => $campanhaAgendamento->toArray(),
+                'message' => 'Comunicado updated.',
+                'data'    => $comunicado->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -198,11 +198,11 @@ class CampanhaAgendamentosController extends Controller
         if (request()->wantsJson()) {
 
             return response()->json([
-                'message' => 'CampanhaAgendamento deleted.',
+                'message' => 'Comunicado deleted.',
                 'deleted' => $deleted,
             ]);
         }
 
-        return redirect()->back()->with('message', 'CampanhaAgendamento deleted.');
+        return redirect()->back()->with('message', 'Comunicado deleted.');
     }
 }

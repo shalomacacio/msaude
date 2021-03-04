@@ -4,16 +4,16 @@ namespace App\Repositories;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use App\Repositories\CampanhaAgendamentoRepository;
-use App\Entities\CampanhaAgendamento;
-use App\Validators\CampanhaAgendamentoValidator;
+use App\Repositories\ComunicadoRepository;
+use App\Entities\Comunicado;
+use App\Validators\ComunicadoValidator;
 
 /**
- * Class CampanhaAgendamentoRepositoryEloquent.
+ * Class ComunicadoRepositoryEloquent.
  *
  * @package namespace App\Repositories;
  */
-class CampanhaAgendamentoRepositoryEloquent extends BaseRepository implements CampanhaAgendamentoRepository
+class ComunicadoRepositoryEloquent extends BaseRepository implements ComunicadoRepository
 {
     /**
      * Specify Model class name
@@ -22,7 +22,7 @@ class CampanhaAgendamentoRepositoryEloquent extends BaseRepository implements Ca
      */
     public function model()
     {
-        return CampanhaAgendamento::class;
+        return Comunicado::class;
     }
 
     /**
@@ -33,7 +33,7 @@ class CampanhaAgendamentoRepositoryEloquent extends BaseRepository implements Ca
     public function validator()
     {
 
-        return CampanhaAgendamentoValidator::class;
+        return ComunicadoValidator::class;
     }
 
 
