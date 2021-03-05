@@ -14,6 +14,9 @@
       </div> --}}
   </div>
   <div class="bd-example">
+
+      {{ $errors->any() }}
+
     <form class="row g-3" action="{{ route('pacientes.store') }}" method="POST">
       @csrf
       @include('pacientes.form')

@@ -145,9 +145,9 @@ class PacientesController extends Controller
      */
     public function showPaciente()
     {
-        $cpf = Auth::user()->cpf;
+        $cns = Auth::user()->cns;
 
-        $paciente = Paciente::where('cpf', $cpf)->first();
+        $paciente = Paciente::where('cns', $cns)->first();
 
         if (request()->wantsJson()) {
 
@@ -167,9 +167,9 @@ class PacientesController extends Controller
 
     public function showComorb()
     {
-        $cpf = Auth::user()->cpf;
+        $cns = Auth::user()->cns;
 
-        $paciente = Paciente::where('cpf', $cpf)->first();
+        $paciente = Paciente::where('cns', $cns)->first();
 
         if (request()->wantsJson()) {
 

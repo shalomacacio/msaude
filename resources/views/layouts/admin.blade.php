@@ -6,7 +6,8 @@
     <meta name="description" content="Sistema de Gestão Hospitalar">
     <meta name="author" content="Shalom Acácio">
     <meta name="generator" content="Hugo 0.20.0">
-    <title>M-Saúde</title>
+    <link rel="icon" href="{{ URL::asset('site/bootstrap/brand/favico.png') }}" type="image/x-icon"/>
+    <title>MSaúde</title>
     @include('layouts.partials.site.styles')
   </head>
   <body>

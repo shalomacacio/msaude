@@ -1,15 +1,13 @@
 
 <div class="col-md-4">
-  <label for="nome" class="form-label">CNS - Cartão SUS</label>
-  <input type="text" class="form-control " id="cns" name="cns" required
-   @isset( $paciente->cns )
-      value="{{ $paciente->cns }}" disabled
-  @endisset >
+  <label for="cns" class="form-label">CNS - Cartão SUS</label>
+  <input type="text" class="form-control " id="cns" required
+  value="{{ Auth::user()->cns }}"  disabled>
 </div>
 
 <div class="col-md-4">
   <label for="nome" class="form-label">CPF</label>
-  <input type="text" class="form-control " id="cpf"  value="{{ Auth::user()->cpf }}" disabled >
+  <input type="text" class="form-control " id="cpf"  name="cpf"  >
 </div>
 
 <div class="col-md-2">
@@ -98,11 +96,7 @@
 
 <div class="col-md-4">
   <label for="validationBairro" class="form-label">Bairro</label>
-  <select class="form-select " id="validationBairro" name="bairro">
-    <option selected value="1">Centro</option>
-    <option selected value="2">Guabiraba</option>
-    <option selected value="3">Pq São João</option>
-  </select>
+  <input type="text" class="form-control " id="bairro"  name="bairro"  >
 </div>
 
 <div class="col-md-2">
@@ -129,12 +123,10 @@
 </div>
 
 <div class="col-md-6">
-  <label for="validationUbs" class="form-label">Agente de Saúde</label>
-  <select class="form-select " id="validationUbs" name="agen_saude_id" required>
-    <option selected value="1">Fulana</option>
-  </select>
+  <label for="validationAgenSaude" class="form-label">Agente de Saúde</label>
+  <input type="text" class="form-control " id="agen_saude_id"   >
 </div>
 
 <input type="hidden" name="nome" value="{{Auth::user()->nome}}" />
-<input type="hidden" name="cpf" value="{{Auth::user()->cpf}}" />
+<input type="hidden" name="cns" value="{{Auth::user()->cns}}" />
 <input type="hidden" name="celular" value="{{Auth::user()->celular}}" />
