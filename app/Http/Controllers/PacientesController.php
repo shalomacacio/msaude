@@ -72,7 +72,7 @@ class PacientesController extends Controller
 
     public function create(){
         $ubs = $this->ubsRepository->all();
-        $paciente = $this->repository->findByField('cpf',Auth::user()->cpf)->first();
+        $paciente = $this->repository->findByField('cns',Auth::user()->cns)->first();
         return view('pacientes.create', compact('ubs', 'paciente'));
     }
 
@@ -84,7 +84,7 @@ class PacientesController extends Controller
     public function comorbCreate(Request $request){
 
         // $paciente = $this->repository->findByField('id', Auth::user()->id)->first();
-        $paciente = Paciente::where('cpf', Auth::user()->cpf)->first();
+        $paciente = Paciente::where('cns', Auth::user()->cns)->first();
         $comorbidades = $request->comorbidades;
         
         //salva no relacionamento

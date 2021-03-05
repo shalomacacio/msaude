@@ -18,7 +18,7 @@ class CreatePacientesTable extends Migration
 		Schema::create('pacientes', function(Blueprint $table) {
 			$table->id();
 			//Dados Pessoais
-			$table->string('cns', 7)->unique(); 	//cartao nacional de saude 
+			$table->string('cns', 15)->unique(); 	//cartao nacional de saude 
 			$table->string('nome');
             $table->string('nome_mae');
             $table->string('cpf', 11)->unique();

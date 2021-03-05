@@ -25,10 +25,10 @@ class PacienteLoginController extends Controller
 
     public function authPaciente(Request $request)
     {
-        $cpf = $request->cpf;
+        $cns = $request->cns;
         $celular = $request->celular;
 
-        $paciente = $this->pacienteRepository->findByField('cpf', $cpf);
+        $paciente = $this->pacienteRepository->findByField('cns', $cns);
 
         $response = [
             'message' => 'Comorbidade created.',

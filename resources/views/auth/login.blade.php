@@ -44,9 +44,9 @@
       <img class="mb-4" src="{{ asset('site/bootstrap/brand/logo.png') }}" alt="" width="200">
       <h1 class="h3 mb-3 fw-normal">Campanha de Vacinação COVID-19</h1>
       
-      <label for="inputCpf" class="visually-hidden">CPF</label>
-      <input type="text" id="inputCpf" class="form-control" placeholder="CPF" name="cpf"  required autofocus>
-      @error('cpf')
+      <label for="inputCns" class="visually-hidden">CNS-Cartão SUS</label>
+      <input type="text" id="inputCns" class="form-control" placeholder="CNS" name="cns"  required autofocus>
+      @error('cns')
         {{ $message }}
       @enderror
 

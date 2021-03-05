@@ -36,13 +36,13 @@ class AuthController extends Controller
                 
                 $dados = $request->validate([
                     'nome' => 'required',
-                    'cpf' => 'required|cpf|unique:users',
+                    'cns' => 'required|unique:users',
                     'celular' => 'required|min:11 ',
                 ]);
 
                 User::create([
                     'nome' => $request->nome,
-                    'cpf' => $request->cpf,
+                    'cns' => $request->cns,
                     'celular' => $request->celular
                 ]);
 
@@ -58,22 +58,22 @@ class AuthController extends Controller
 
             $data =
             [
-                'cpf' => $request->get('cpf'),
+                'cns' => $request->get('cns'),
                 'celular' => $request->get('celular'),
             ];
       
             try {
 
-                $user = User::where('cpf', $request->cpf)->first();
+                $user = User::where('cns', $request->cns)->first();
                 
                 if(!$user){
-                    return Redirect::back()->withErrors(['cpf' => 'CPF não encontrado!']);
+                    return Redirect::back()->withErrors(['cns' => 'CNS não encontrado!']);
                 }
                 if($user->celular != $request->get('celular')){
                     return Redirect::back()->withErrors(['celular' => 'Celular não encontrado!']);
                 }
 
-                $paciente = Paciente::where('cpf', $user->cpf)->first();
+                $paciente = Paciente::where('cns', $user->cns)->first();
 
                 Auth::login($user);
                 

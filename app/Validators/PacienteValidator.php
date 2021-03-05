@@ -20,7 +20,7 @@ class PacienteValidator extends LaravelValidator
     protected $rules = [
         ValidatorInterface::RULE_CREATE => [
             'nome' => 'required|max:50',
-            'cpf' => 'required|unique:pacientes',
+            'cns' => 'required|unique:pacientes',
             'celular' => 'required|max:11'
         ],
         ValidatorInterface::RULE_UPDATE => [],
