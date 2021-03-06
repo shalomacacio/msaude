@@ -8,9 +8,7 @@
     <meta name="generator" content="Hugo 0.20.0">
     <link rel="icon" href="{{ URL::asset('site/bootstrap/brand/favico.png') }}" type="image/x-icon"/>
     <title>MSaúde</title>
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
-
+    
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="{{ asset('site/bootstrap/dist/css/bootstrap.min.css') }}">
 
@@ -43,9 +41,9 @@
       <img class="mb-4" src="{{ asset('site/bootstrap/brand/logo.png') }}" alt="" width="200">
       <h1 class="h3 mb-3 fw-normal">Campanha de Vacinação COVID-19</h1>
       
-      <label for="inputCns" class="visually-hidden">CNS-Cartão SUS</label>
-      <input type="text" id="inputCns" class="form-control" placeholder="CARTÃO NACIONAL DE SAÚDE-CNS" name="cns"  required autofocus>
-      @error('cns')
+      <label for="inputCpf" class="visually-hidden">CPF</label>
+      <input type="text" id="inputCpf" class="form-control" placeholder="CPF" name="cpf"  required autofocus>
+      @error('cpf')
         {{ $message }}
       @enderror
 

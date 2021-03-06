@@ -1,13 +1,12 @@
-
 <div class="col-md-4">
   <label for="cns" class="form-label">CNS - Cartão SUS</label>
-  <input type="text" class="form-control " id="cns" required  value="{{ Auth::user()->cns }}"  disabled>
+  <input type="text" class="form-control " id="cns" required  >
   @error('cns') {{ $message }} @enderror
 </div>
 
 <div class="col-md-4">
   <label for="nome" class="form-label">CPF</label>
-  <input type="text" class="form-control " id="cpf"  name="cpf"  >
+  <input type="text" class="form-control " id="cpf"  name="cpf"  placeholder="{{ Auth::user()->cpf }}" disabled >
   @error('cpf') {{ $message }} @enderror
 </div>
 
@@ -120,5 +119,5 @@
 </div>
 
 <input type="hidden" name="nome" value="{{Auth::user()->nome}}" />
-<input type="hidden" name="cns" value="{{Auth::user()->cns}}" />
+<input type="hidden" name="cpf" value="{{Auth::user()->cpf}}" />
 <input type="hidden" name="celular" value="{{Auth::user()->celular}}" />

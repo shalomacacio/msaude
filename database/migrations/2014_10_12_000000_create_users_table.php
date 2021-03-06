@@ -16,7 +16,8 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->unsignedBigInteger('cns')->unique(); 
+            $table->string('cpf',11)->unique();
+            // $table->unsignedBigInteger('cns')->unique(); 
             $table->string('celular', 11);
             $table->timestamps();
         });

@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'nome', 'cns', 'celular',
+        'nome', 'cpf', 'celular',
     ];
 
     public function setNomeAttribute($value)

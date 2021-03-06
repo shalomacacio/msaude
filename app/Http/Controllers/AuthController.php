@@ -37,15 +37,13 @@ class AuthController extends Controller
                 $dados = $request->validate(
                     [
                         'nome' => 'required',
-                        'cns' => 'required|unique:users|min:15|max:15',
+                        'cpf' => 'required|unique:users|cpf',
                         'celular' => 'required|min:11|max:11 ',
                     ],
                     [
                         'nome.required'=>'Este campo é obrigatório',
-                        'cns.required'=>'Este campo é obrigatório',
-                        'cns.unique'=>'Este usuário já existe',
-                        'cns.min'=>'mínimo 15 dígitos',
-                        'cns.max'=>'máximo 15 dígitos',
+                        'cpf.required'=>'Este campo é obrigatório',
+                        'cpf.unique'=>'Este cpf já existe',
                         'celular.min'=>'celular invalido',
                         'celular.max'=>'celular invalido',
                     ]
@@ -53,7 +51,7 @@ class AuthController extends Controller
 
                 User::create([
                     'nome' => $request->nome,
-                    'cns' => $request->cns,
+                    'cpf' => $request->cpf,
                     'celular' => $request->celular
                 ]);
 
@@ -70,22 +68,22 @@ class AuthController extends Controller
 
             $data =
             [
-                'cns' => $request->get('cns'),
+                'cpf' => $request->get('cpf'),
                 'celular' => $request->get('celular'),
             ];
       
             try {
 
-                $user = User::where('cns', $request->cns)->first();
+                $user = User::where('cpf', $request->cpf)->first();
                 
                 if(!$user){
-                    return Redirect::back()->withErrors(['cns' => 'CNS não encontrado!']);
+                    return Redirect::back()->withErrors(['cpf' => 'CPF não encontrado!']);
                 }
                 if($user->celular != $request->get('celular')){
                     return Redirect::back()->withErrors(['celular' => 'Celular não encontrado!']);
                 }
 
-                $paciente = Paciente::where('cns', $user->cns)->first();
+                $paciente = Paciente::where('cpf', $user->cpf)->first();
 
                 Auth::login($user);
                 

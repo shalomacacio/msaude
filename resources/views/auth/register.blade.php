@@ -30,7 +30,6 @@
       }
     </style>
 
-    
     <!-- Custom styles for this template -->
     <link href="signin.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('site/bootstrap/sign-in/signin.css') }}">
@@ -47,9 +46,9 @@
       <label for="inputNome" class="visually-hidden">Nome</label>
       <input type="text" id="inputNome" class="form-control" placeholder="Nome" name="nome"  required autofocus>
       
-      <label for="inputCns" class="visually-hidden">CNS</label>
-      <input type="text" id="inputCns" class="form-control" placeholder="CNS" name="cns"  required autofocus>
-      @error('cns') {{ $message }}@enderror
+      <label for="inputCpf" class="visually-hidden">CPF</label>
+      <input type="text" id="inputCns" class="form-control" placeholder="CPF" name="cpf"  required autofocus>
+      @error('cpf') {{ $message }}@enderror
 
       <label for="inputCelular" class="visually-hidden">Celular - WhatsApp</label>
       <input type="text" id="inputCelular" class="form-control" placeholder="Celular" name="celular"  required autofocus>
@@ -60,6 +59,7 @@
           <a href="{{ route('login') }}">Realizar Login</a>
         </label>
       </div>
+
       <button class="w-100 btn btn-lg btn-primary" type="submit">Cadastrar</button>
       <p class="mt-5 mb-3 text-muted">&copy; Caffeinne Sistemas</p>
     </form>

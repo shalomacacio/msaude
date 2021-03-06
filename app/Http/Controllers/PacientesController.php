@@ -76,7 +76,11 @@ class PacientesController extends Controller
     public function create(){
         $ubs = $this->ubsRepository->all();
         $bairros = $this->bairroRepository->all();
-        return view('pacientes.create', compact('ubs','bairros'));
+        $paciente = Paciente::where('cpf', Auth::user()->cpf);
+        if(!$paciente){
+            return view('pacientes.create', compact('ubs','bairros'));
+        }
+        return redirect()->route('showPaciente');
     }
 
     public function comorbidades(){
@@ -86,12 +90,16 @@ class PacientesController extends Controller
 
     public function comorbCreate(Request $request){
 
-        // $paciente = $this->repository->findByField('id', Auth::user()->id)->first();
-        $paciente = Paciente::where('cns', Auth::user()->cns)->first();
+        $paciente = Paciente::where('cpf', Auth::user()->cpf)->first();
         $comorbidades = $request->comorbidades;
         
         //salva no relacionamento
         foreach ($comorbidades as $c) {
+            if($c == 1){
+                $comorbidade = $this->comorbidadeRepository->find($c); 
+                $paciente->comorbidades()->save($comorbidade);
+                return redirect()->route('showComorb');
+            }
             $comorbidade = $this->comorbidadeRepository->find($c);
             $paciente->comorbidades()->save($comorbidade);
         }
@@ -148,9 +156,9 @@ class PacientesController extends Controller
      */
     public function showPaciente()
     {
-        $cns = Auth::user()->cns;
+        $cpf = Auth::user()->cpf;
 
-        $paciente = Paciente::where('cns', $cns)->first();
+        $paciente = Paciente::where('cpf', $cpf)->first();
 
         if (request()->wantsJson()) {
 
@@ -169,9 +177,9 @@ class PacientesController extends Controller
 
     public function showComorb()
     {
-        $cns = Auth::user()->cns;
+        $cpf = Auth::user()->cpf;
 
-        $paciente = Paciente::where('cns', $cns)->first();
+        $paciente = Paciente::where('cpf', $cpf)->first();
 
         if (request()->wantsJson()) {
 
