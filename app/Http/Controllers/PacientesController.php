@@ -10,6 +10,7 @@ use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
 use App\Http\Requests\PacienteCreateRequest;
 use App\Http\Requests\PacienteUpdateRequest;
+use App\Repositories\BairroRepository;
 use App\Repositories\ComorbidadeRepository;
 use App\Repositories\PacienteRepository;
 use App\Repositories\UbsRepository;
@@ -28,6 +29,7 @@ class PacientesController extends Controller
      */
     protected $repository;
     protected $ubsRepository;
+    protected $bairroRepository;
     protected $comorbidadeRepository;
 
     /**
@@ -43,10 +45,11 @@ class PacientesController extends Controller
      */
     public function __construct(
         PacienteRepository $repository, PacienteValidator $validator,
-        UbsRepository $ubsRepository, ComorbidadeRepository $comorbidadeRepository)
+        UbsRepository $ubsRepository, ComorbidadeRepository $comorbidadeRepository, BairroRepository $bairroRepository)
     {
         $this->repository = $repository;
         $this->validator  = $validator;
+        $this->bairroRepository = $bairroRepository;
         $this->ubsRepository = $ubsRepository;
         $this->comorbidadeRepository = $comorbidadeRepository;
     }
@@ -72,8 +75,8 @@ class PacientesController extends Controller
 
     public function create(){
         $ubs = $this->ubsRepository->all();
-        $paciente = $this->repository->findByField('cns',Auth::user()->cns)->first();
-        return view('pacientes.create', compact('ubs', 'paciente'));
+        $bairros = $this->bairroRepository->all();
+        return view('pacientes.create', compact('ubs','bairros'));
     }
 
     public function comorbidades(){
@@ -157,8 +160,7 @@ class PacientesController extends Controller
         }
 
         if(!$paciente){
-            $ubs = $this->ubsRepository->all();
-            return view('pacientes.create', compact('ubs', 'paciente'));
+            return redirect()->route('pacientes.create');
         }
 
         return view('pacientes.show', compact('paciente'));

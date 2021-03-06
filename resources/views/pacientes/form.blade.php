@@ -58,15 +58,40 @@
   @error('cep') {{ $message }} @enderror
 </div>
 
-<div class="col-md-8">
+<div class="col-md-4">
   <label for="validationRua" class="form-label">Rua</label>
   <input type="text" class="form-control " id="endereco" name="rua" required >
   
 </div>
 
-<div class="col-md-2">
+<div class="col-md-1">
   <label for="validationNum" class="form-label">Nº</label>
   <input type="text" class="form-control " id="validationNum" name="num" required>
+</div>
+
+<div class="col-md-2">
+  <label for="validationCidade" class="form-label">Bairro</label>
+  <select class="form-select " id="validationUf" name="bairro_id" required>
+    <option selected value=" ">--SELECIONE--</option>
+    @foreach ($bairros as $bairro)
+        <option value="{{ $bairro->id}}">{{ $bairro->nome}}</option>
+    @endforeach
+    
+  </select>
+</div>
+
+<div class="col-md-2">
+  <label for="validationCidade" class="form-label">Cidade</label>
+  <select class="form-select " id="validationUf" name="cidade_id" required>
+    <option selected value="2307700">MARANGUAPE</option>
+  </select>
+</div>
+
+<div class="col-md-1">
+  <label for="validationCidade" class="form-label">UF</label>
+  <select class="form-select " id="validationUf" name="uf_id" required>
+    <option selected value="23">CE</option>
+  </select>
 </div>
 
 <div class="col-md-4">
@@ -74,28 +99,7 @@
   <input type="text" class="form-control " id="validationComp" name="comp">
 </div>
 
-<div class="col-md-2">
-  <label for="validationCidade" class="form-label">Bairro</label>
-  <select class="form-select " id="validationUf" name="bairro_id" required>
-    <option selected value="1">CENTRO</option>
-  </select>
-</div>
-
-<div class="col-md-2">
-  <label for="validationCidade" class="form-label">Cidade</label>
-  <select class="form-select " id="validationUf" name="cidade_id" required>
-    <option selected value="1">MARANGUAPE</option>
-  </select>
-</div>
-
-<div class="col-md-2">
-  <label for="validationCidade" class="form-label">UF</label>
-  <select class="form-select " id="validationUf" name="uf_id" required>
-    <option selected value="1">CE</option>
-  </select>
-</div>
-
-<div class="col-md-6">
+<div class="col-md-4">
   <label for="validationUbs" class="form-label">UBS - POSTO DE SAÚDE</label>
   <select class="form-select " id="validationUbs" name="ubs_id" required>
     <option selected >--SELECIONE--</option>
@@ -105,9 +109,14 @@
   </select>
 </div>
 
-<div class="col-md-6">
+<div class="col-md-4">
   <label for="validationAgenSaude" class="form-label">Agente de Saúde</label>
   <input type="text" class="form-control " id="agente_saude" name="agente_saude"  >
+</div>
+
+<div class="col-md-12">
+  <label for="validationObs" class="form-label">Observações</label>
+  <textarea name="obs" class="form-control " id="obs" cols="30" rows="3"> </textarea>
 </div>
 
 <input type="hidden" name="nome" value="{{Auth::user()->nome}}" />

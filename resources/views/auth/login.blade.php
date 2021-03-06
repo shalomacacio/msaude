@@ -11,8 +11,6 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
 
-    
-
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="{{ asset('site/bootstrap/dist/css/bootstrap.min.css') }}">
 
@@ -46,13 +44,13 @@
       <h1 class="h3 mb-3 fw-normal">Campanha de Vacinação COVID-19</h1>
       
       <label for="inputCns" class="visually-hidden">CNS-Cartão SUS</label>
-      <input type="text" id="inputCns" class="form-control" placeholder="CNS" name="cns"  required autofocus>
+      <input type="text" id="inputCns" class="form-control" placeholder="CARTÃO NACIONAL DE SAÚDE-CNS" name="cns"  required autofocus>
       @error('cns')
         {{ $message }}
       @enderror
 
       <label for="inputCelular" class="visually-hidden">Celular - WhatsApp</label>
-      <input type="text" id="inputCelular" class="form-control" placeholder="Celular" name="celular"  required autofocus>
+      <input type="text" id="inputCelular" class="form-control" placeholder="CELULAR COM DDD" name="celular"  required autofocus>
       @error('celular')
         {{ $message }}
       @enderror

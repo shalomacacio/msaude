@@ -38,6 +38,8 @@ class CreatePacientesTable extends Migration
 			$table->string('num', 8)->nullable();
 			$table->string('comp', 8)->nullable();
 
+			$table->longText('obs')->nullable();
+
 			//Dados hospitalares
 			$table->unsignedInteger('ubs_id');	//unidade basica de saude
 			$table->string('agente_saude')->nullable();	//agente de saude
