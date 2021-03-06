@@ -77,10 +77,10 @@ class PacientesController extends Controller
         $ubs = $this->ubsRepository->all();
         $bairros = $this->bairroRepository->all();
         $paciente = Paciente::where('cpf', Auth::user()->cpf);
-        if(!$paciente){
+      
             return view('pacientes.create', compact('ubs','bairros'));
-        }
-        return redirect()->route('showPaciente');
+        
+        // return redirect()->route('showPaciente');
     }
 
     public function comorbidades(){

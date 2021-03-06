@@ -45,7 +45,6 @@ class AuthController extends Controller
                         'cpf.numeric'=>'Digite apenas números',
                         'cpf.unique'=>'Este cpf já existe',
                         'cpf.required'=>'Este campo é obrigatório',
-
                         'celular.min'=>'celular invalido',
                         'celular.max'=>'celular invalido',
                     ]
@@ -95,7 +94,6 @@ class AuthController extends Controller
                 return redirect()->route('pacientes.index');
             } catch (Exception $e) {
                 //throw $th;
-                
                 return redirect()->back()->with(['message'=> $e->getMessage()]);
             }
         }
