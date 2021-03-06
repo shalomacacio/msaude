@@ -18,7 +18,7 @@ class CreatePacientesTable extends Migration
 		Schema::create('pacientes', function(Blueprint $table) {
 			$table->id();
 			//Dados Pessoais
-			$table->string('cns', 15)->unique(); 	//cartao nacional de saude 
+			$table->unsignedBigInteger('cns')->unique(); 	//cartao nacional de saude 
 			$table->string('nome');
             $table->string('nome_mae');
             $table->string('cpf', 11)->unique();
@@ -31,15 +31,16 @@ class CreatePacientesTable extends Migration
             
 			//Endereço
             $table->string('cep', 8)->nullable();
-			$table->string('uf', 2)->nullable();
-			$table->string('bairro', 50)->nullable();
+			$table->unsignedInteger('uf_id')->nullable();
+			$table->unsignedInteger('cidade_id')->nullable();
+			$table->unsignedInteger('bairro_id')->nullable();
 			$table->string('rua', 50)->nullable();
 			$table->string('num', 8)->nullable();
 			$table->string('comp', 8)->nullable();
 
 			//Dados hospitalares
-			$table->bigInteger('ubs_id');	//unidade basica de saude
-			$table->bigInteger('agen_saude_id')->nullable();	//agente de saude
+			$table->unsignedInteger('ubs_id');	//unidade basica de saude
+			$table->string('agente_saude')->nullable();	//agente de saude
 			
  
             $table->timestamps();

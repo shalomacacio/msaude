@@ -109,8 +109,8 @@ class PacientesController extends Controller
     {
         try {
 
-            $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
-            
+            $this->validator->with( $request->all() )->passesOrFail();
+
             $paciente = $this->repository->create($request->all());
 
             $response = [
@@ -123,7 +123,7 @@ class PacientesController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->back()->with('message', $response['message']);
+            return redirect()->route('showPaciente')->with('message', $response['message']);
         } catch (ValidatorException $e) {
             if ($request->wantsJson()) {
                 return response()->json([

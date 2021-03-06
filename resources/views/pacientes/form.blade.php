@@ -1,92 +1,72 @@
 
 <div class="col-md-4">
   <label for="cns" class="form-label">CNS - Cartão SUS</label>
-  <input type="text" class="form-control " id="cns" required
-  value="{{ Auth::user()->cns }}"  disabled>
+  <input type="text" class="form-control " id="cns" required  value="{{ Auth::user()->cns }}"  disabled>
+  @error('cns') {{ $message }} @enderror
 </div>
 
 <div class="col-md-4">
   <label for="nome" class="form-label">CPF</label>
   <input type="text" class="form-control " id="cpf"  name="cpf"  >
+  @error('cpf') {{ $message }} @enderror
 </div>
 
 <div class="col-md-2">
   <label for="validationDtNascimento" class="form-label">Data Nascimento</label>
   <div class="input-group has-validation">
-    <input type="date" class="form-control " id="validationDtNascimento"  name="dt_nascimento" aria-describedby="inputGroupPrepend3" required
-    @isset( $paciente->dt_nascimento )
-      value="{{ $paciente->dt_nascimento }}" disabled 
-    @endisset >
+    <input type="date" class="form-control " id="validationDtNascimento"  name="dt_nascimento" aria-describedby="inputGroupPrepend3" required>
   </div>
+  @error('dt_nascimento') {{ $message }} @enderror
 </div>
 
 <div class="col-md-2">
   <label for="validationSexo" class="form-label">Sexo</label>
-
-  <select class="form-select " id="validationSexo" name="sexo" required
-  @isset($paciente->sexo)
-    disabled
-  @endisset >
-  @isset($paciente->sexo)
-    <option  selected value="{{ $paciente->sexo }}">{{ $paciente->sexo }}</option>
-  @endisset
-  @empty($paciente->sexo)
-    <option  value="F">-- SELECIONE -- </option>
-    <option  selected value="F">F</option>
+  <select class="form-select " id="validationSexo" name="sexo" required>
+    <option selected>-- SELECIONE -- </option>
+    <option value="F">F</option>
     <option value="M">M</option>
-  @endempty
   </select>
+  @error('sexo') {{ $message }} @enderror
 </div>
 
 <div class="col-md-6">
   <label for="nome" class="form-label">Nome</label>
   <input type="text" class="form-control " id="nome" value="{{ Auth::user()->nome }}" disabled>
+  @error('nome') {{ $message }} @enderror
 </div>
 
 <div class="col-md-6">
-  <label for="nome" class="form-label">Nome da Mãe</label>
-  <input type="text" class="form-control " id="nome_mae" name="nome_mae" required
-  @isset( $paciente->nome_mae )
-    value="{{ $paciente->nome_mae }}" disabled
-  @endisset>
+  <label for="nome_mae" class="form-label">Nome da Mãe</label>
+  <input type="text" class="form-control " id="nome_mae" name="nome_mae" required >
+  @error('nome_mae') {{ $message }} @enderror
 </div>
 
 <div class="col-md-6">
   <label for="validationCelular" class="form-label">Telefone (WhatsApp) </label>
   <input type="text" class="form-control " id="validationCelular" value="{{ Auth::user()->celular }}" disabled>
+  @error('celular') {{ $message }} @enderror
 </div>
 
 <div class="col-md-6">
   <label for="validationEmail" class="form-label">Email </label>
-  <input type="text" class="form-control " id="validationEmail" name="email" required
-  
-  @isset( $paciente->email )
-    value="{{ $paciente->email }}" disabled
-  @endisset>
+  <input type="text" class="form-control " id="validationEmail" name="email"  >
 </div>
 
 <div class="col-md-2">
   <label for="validationCep" class="form-label"> CEP </label>
-  <input type="text" class="form-control " id="validationCep" name="cep" required
-  @isset( $paciente->cep )
-    value="{{ $paciente->cep }}" disabled
-  @endisset>
+  <input type="text" class="form-control " id="validationCep" name="cep" >
+  @error('cep') {{ $message }} @enderror
 </div>
 
 <div class="col-md-8">
   <label for="validationRua" class="form-label">Rua</label>
-  <input type="text" class="form-control " id="endereco" name="rua" required
-  @isset( $paciente->rua )
-    value="{{ $paciente->rua }}" disabled
-  @endisset>
+  <input type="text" class="form-control " id="endereco" name="rua" required >
+  
 </div>
 
 <div class="col-md-2">
   <label for="validationNum" class="form-label">Nº</label>
-  <input type="text" class="form-control " id="validationNum" name="num" required
-  @isset( $paciente->num )
-    value="{{ $paciente->num }}" disabled
-  @endisset>
+  <input type="text" class="form-control " id="validationNum" name="num" required>
 </div>
 
 <div class="col-md-4">
@@ -94,21 +74,23 @@
   <input type="text" class="form-control " id="validationComp" name="comp">
 </div>
 
-<div class="col-md-4">
-  <label for="validationBairro" class="form-label">Bairro</label>
-  <input type="text" class="form-control " id="bairro"  name="bairro"  >
-</div>
-
 <div class="col-md-2">
-  <label for="validationCidade" class="form-label">Cidade</label>
-  <select class="form-select " id="validationUf" name="uf" required>
-    <option selected value="1">Maranguape</option>
+  <label for="validationCidade" class="form-label">Bairro</label>
+  <select class="form-select " id="validationUf" name="bairro_id" required>
+    <option selected value="1">CENTRO</option>
   </select>
 </div>
 
 <div class="col-md-2">
-  <label for="validationUf" class="form-label">Estado</label>
-  <select class="form-select " id="validationCidade" name="uf" required>
+  <label for="validationCidade" class="form-label">Cidade</label>
+  <select class="form-select " id="validationUf" name="cidade_id" required>
+    <option selected value="1">MARANGUAPE</option>
+  </select>
+</div>
+
+<div class="col-md-2">
+  <label for="validationCidade" class="form-label">UF</label>
+  <select class="form-select " id="validationUf" name="uf_id" required>
     <option selected value="1">CE</option>
   </select>
 </div>
@@ -116,15 +98,16 @@
 <div class="col-md-6">
   <label for="validationUbs" class="form-label">UBS - POSTO DE SAÚDE</label>
   <select class="form-select " id="validationUbs" name="ubs_id" required>
+    <option selected >--SELECIONE--</option>
     @foreach ($ubs as $u)
-      <option selected value="{{ $u->id }}">{{ $u->nome }}</option>
+      <option value="{{ $u->id }}">{{ $u->nome }}</option>
     @endforeach
   </select>
 </div>
 
 <div class="col-md-6">
   <label for="validationAgenSaude" class="form-label">Agente de Saúde</label>
-  <input type="text" class="form-control " id="agen_saude_id"   >
+  <input type="text" class="form-control " id="agente_saude" name="agente_saude"  >
 </div>
 
 <input type="hidden" name="nome" value="{{Auth::user()->nome}}" />

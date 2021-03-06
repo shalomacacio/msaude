@@ -31,14 +31,39 @@ class Paciente extends Model implements Transformable
         'email',
         'email_verified_at',
         'cep',
-        'uf',
-        'bairro',
+        'uf_id',
+        'cidade_id',
+        'bairro_id',
         'comp',
         'rua',
         'num',
         'ubs_id',
-        'agen_saude_id',
+        'agente_saude',
     ];
+
+    //MUTATORS
+
+    public function setNomeAttribute($value)
+    {
+        $this->attributes['nome'] = strtoupper($value); 
+    }
+
+    public function setNomeMaeAttribute($value)
+    {
+        $this->attributes['nome_mae'] = strtoupper($value); 
+    }
+    
+    public function setRuaAttribute($value)
+    {
+        $this->attributes['rua'] = strtoupper($value); 
+    }
+
+    public function setAgenteSaudeAttribute($value)
+    {
+        $this->attributes['agente_saude'] = strtoupper($value); 
+    }
+
+    //RELACIONAMENTOS
 
     public function comorbidades() {
         return $this->belongsToMany( Comorbidade::class );
