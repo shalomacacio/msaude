@@ -37,13 +37,15 @@ class AuthController extends Controller
                 $dados = $request->validate(
                     [
                         'nome' => 'required',
-                        'cpf' => 'required|unique:users|cpf',
+                        'cpf' => 'required|numeric|unique:users|cpf',
                         'celular' => 'required|min:11|max:11 ',
                     ],
                     [
                         'nome.required'=>'Este campo é obrigatório',
-                        'cpf.required'=>'Este campo é obrigatório',
+                        'cpf.numeric'=>'Digite apenas números',
                         'cpf.unique'=>'Este cpf já existe',
+                        'cpf.required'=>'Este campo é obrigatório',
+
                         'celular.min'=>'celular invalido',
                         'celular.max'=>'celular invalido',
                     ]

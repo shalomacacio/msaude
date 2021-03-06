@@ -41,7 +41,7 @@
       <img class="mb-4" src="{{ asset('site/bootstrap/brand/logo.png') }}" alt="" width="200">
       <h1 class="h3 mb-3 fw-normal">Campanha de Vacinação COVID-19</h1>
       
-      <label for="inputCpf" class="visually-hidden">CPF</label>
+      <label for="inputCpf" class="visually-hidden">CPF (APENAS NUMEROS)</label>
       <input type="text" id="inputCpf" class="form-control" placeholder="CPF" name="cpf"  required autofocus>
       @error('cpf')
         {{ $message }}

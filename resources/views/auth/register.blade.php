@@ -47,7 +47,7 @@
       <input type="text" id="inputNome" class="form-control" placeholder="Nome" name="nome"  required autofocus>
       
       <label for="inputCpf" class="visually-hidden">CPF</label>
-      <input type="text" id="inputCns" class="form-control" placeholder="CPF" name="cpf"  required autofocus>
+      <input type="text" id="inputCns" class="form-control" placeholder="CPF (Somente Números)" name="cpf"  required autofocus>
       @error('cpf') {{ $message }}@enderror
 
       <label for="inputCelular" class="visually-hidden">Celular - WhatsApp</label>
