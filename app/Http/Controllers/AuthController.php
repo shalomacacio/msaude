@@ -34,11 +34,22 @@ class AuthController extends Controller
         {
             try{
                 
-                $dados = $request->validate([
-                    'nome' => 'required',
-                    'cns' => 'required|unique:users',
-                    'celular' => 'required|min:11 ',
-                ]);
+                $dados = $request->validate(
+                    [
+                        'nome' => 'required',
+                        'cns' => 'required|unique:users|min:15|max:15',
+                        'celular' => 'required|min:11|max:11 ',
+                    ],
+                    [
+                        'nome.required'=>'Este campo é obrigatório',
+                        'cns.required'=>'Este campo é obrigatório',
+                        'cns.unique'=>'Este usuário já existe',
+                        'cns.min'=>'mínimo 15 dígitos',
+                        'cns.max'=>'máximo 15 dígitos',
+                        'celular.min'=>'celular invalido',
+                        'celular.max'=>'celular invalido',
+                    ]
+                );
 
                 User::create([
                     'nome' => $request->nome,
@@ -49,7 +60,8 @@ class AuthController extends Controller
                 return redirect()->route('login');  
         
             } catch (\Illuminate\Validation\ValidationException $e) {
-                dd($e->errors());
+                // dd($e->errors());
+                return redirect()->back()->withErrors($e->errors())->withInput();
             }
 
         }

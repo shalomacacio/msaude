@@ -19,4 +19,9 @@ class User extends Authenticatable
         'nome', 'cns', 'celular',
     ];
 
+    public function setNomeAttribute($value)
+    {
+        $this->attributes['nome'] = strtoupper($value); 
+    }
+
 }

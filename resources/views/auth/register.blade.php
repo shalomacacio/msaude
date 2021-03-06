@@ -46,13 +46,15 @@
 
       <label for="inputNome" class="visually-hidden">Nome</label>
       <input type="text" id="inputNome" class="form-control" placeholder="Nome" name="nome"  required autofocus>
-     
+      
       <label for="inputCns" class="visually-hidden">CNS</label>
       <input type="text" id="inputCns" class="form-control" placeholder="CNS" name="cns"  required autofocus>
-      
+      @error('cns') {{ $message }}@enderror
+
       <label for="inputCelular" class="visually-hidden">Celular - WhatsApp</label>
       <input type="text" id="inputCelular" class="form-control" placeholder="Celular" name="celular"  required autofocus>
-      
+      @error('celular') {{ $message }}@enderror
+
       <div class="checkbox mb-3">
         <label>
           <a href="{{ route('login') }}">Realizar Login</a>
