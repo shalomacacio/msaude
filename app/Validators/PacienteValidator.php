@@ -21,7 +21,6 @@ class PacienteValidator extends LaravelValidator
         ValidatorInterface::RULE_CREATE => [
             'nome' => 'required|max:50',
             'cpf' => 'required|cpf|unique:pacientes',
-            'cns' => 'required|unique:pacientes',
             'celular' => 'required|max:11',
             'cep' => 'numeric'
 
