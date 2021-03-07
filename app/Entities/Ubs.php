@@ -28,6 +28,8 @@ class Ubs extends Model implements Transformable
         'bairro'
     ];
 
+
+    //  MUTATOR
     public function setNomeAttribute($value)
     {
         $this->attributes['nome'] = strtoupper($value); 

@@ -76,9 +76,10 @@ class PacientesController extends Controller
     public function create(){
         $ubs = $this->ubsRepository->all();
         $bairros = $this->bairroRepository->all();
+        $comorbidades = $this->comorbidadeRepository->all();
         $paciente = Paciente::where('cpf', Auth::user()->cpf);
       
-            return view('pacientes.create', compact('ubs','bairros'));
+        return view('pacientes.create', compact('ubs','bairros', 'comorbidades'));
         
         // return redirect()->route('showPaciente');
     }
@@ -125,7 +126,7 @@ class PacientesController extends Controller
             $paciente = $this->repository->create($request->all());
 
             $response = [
-                'message' => 'Paciente created.',
+                'message' => 'Próxim Passo : Preencher as COMORBIDADES !',
                 'data'    => $paciente->toArray(),
             ];
 
@@ -134,7 +135,7 @@ class PacientesController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->route('showPaciente')->with('message', $response['message']);
+            return redirect()->back()->with('message', $response['message']);
         } catch (ValidatorException $e) {
             if ($request->wantsJson()) {
                 return response()->json([
@@ -167,7 +168,7 @@ class PacientesController extends Controller
             ]);
         }
 
-        if(!$paciente){
+        if(count($paciente->comorbidades) <= 0){
             return redirect()->route('pacientes.create');
         }
 

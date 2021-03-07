@@ -2,37 +2,46 @@
 
 @section('content')
 
-<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-      <h4 class="h2">Dados Pessoais</h4>
-  </div>
+    <div class="app-wrapper">
 
-  <div class="col-4">
-        <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example" tabindex="0">
-            <h6 id="cns"> CNS - Cartão SUS </h6>
-            <p>{{ $paciente->cns }}</p>
+        <div class="app-content pt-3 p-md-3 p-lg-4">
+            <div class="container-xl">
+                <h1 class="app-page-title">Cadastro</h1>
 
-            <h6 id="cns"> NOME</h6>
-            <p>{{ $paciente->nome }}</p>
+                <div class="row g-4 settings-section">
+                    <div class="col-12 col-md-4">
+                        <h3 class="section-title">Plan</h3>
+                        <div class="section-intro">Settings section intro goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="help.html">Learn more</a></div>
+                    </div>
+                    <div class="col-12 col-md-8">
+                        <div class="app-card app-card-settings shadow-sm p-4">
 
-            <h6 id="cns"> CPF</h6>
-            <p>{{ $paciente->cpf }}</p>
+                            <div class="app-card-body">
+                                <div class="mb-2"><strong>Current Plan:</strong> Pro</div>
+                                <div class="mb-2"><strong>Status:</strong> <span class="badge bg-success">Active</span></div>
+                                <div class="mb-2"><strong>Expires:</strong> 2030-09-24</div>
+                                <div class="mb-4"><strong>Invoices:</strong> <a href="#">view</a></div>
+                                <div class="row justify-content-between">
+                                    <div class="col-auto">
+                                        <a class="btn app-btn-primary" href="#">Upgrade Plan</a>
+                                    </div>
+                                    <div class="col-auto">
+                                        <a class="btn app-btn-secondary" href="#">Cancel Plan</a>
+                                    </div>
+                                </div>
 
-            <h6 id="cns"> DATA DE NASCIMENTO </h6>
-            <p>{{ \Carbon\Carbon::parse($paciente->dt_nascimento)->format('d-m-Y') }}</p>
+                            </div>
+                            <!--//app-card-body-->
 
-            <h6 id="cns"> MÃE </h6>
-            <p>{{ $paciente->nome_mae }}</p>
+                        </div>
+                        <!--//app-card-->
+                    </div>
+                </div>
+                <!--//row-->
+              
+            </div>
+            <!--//container-fluid-->
+        </div>
+        <!--//app-content-->
 
-            <h6 id="cns"> CELULAR </h6>
-            <p>{{ $paciente->celular }}</p>
-
-            <h6 id="cns"> UBS - POSTO DE SAÚDE</h6>
-            <p>{{ $paciente->ubs->nome }}</p>
-        
-      </div>
-  </div>
-    
-</main>
-
-@endsection
+    @endsection

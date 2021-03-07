@@ -24,4 +24,9 @@ class User extends Authenticatable
         $this->attributes['nome'] = strtoupper($value); 
     }
 
+    // RELACIONAMENTOS
+    public function paciente(){
+        return $this->belongsTo(\App\Entities\Paciente::class, 'cpf', 'cpf' );
+    }
+
 }
