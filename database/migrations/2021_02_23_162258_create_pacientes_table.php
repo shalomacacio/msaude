@@ -20,7 +20,7 @@ class CreatePacientesTable extends Migration
 			//Dados Pessoais
 			$table->unsignedBigInteger('cns')->nullable(); 	//cartao nacional de saude 
 			$table->string('nome');
-            $table->string('nome_mae');
+            $table->string('nome_mae')->nullable();
             $table->string('cpf', 11)->unique();
 			$table->date('dt_nascimento');
 			$table->char('sexo', 1);
@@ -34,9 +34,9 @@ class CreatePacientesTable extends Migration
 			$table->unsignedInteger('uf_id')->nullable();
 			$table->unsignedInteger('cidade_id')->nullable();
 			$table->unsignedInteger('bairro_id')->nullable();
-			$table->string('rua', 50)->nullable();
+			$table->string('rua', 120)->nullable();
 			$table->string('num', 8)->nullable();
-			$table->string('comp', 8)->nullable();
+			$table->string('comp', 50)->nullable();
 
 			$table->longText('obs')->nullable();
 

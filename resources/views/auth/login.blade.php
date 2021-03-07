@@ -1,70 +1,34 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Sistema de Gestão Hospitalar">
-    <meta name="author" content="Shalom Acácio">
-    <meta name="generator" content="Hugo 0.20.0">
-    <link rel="icon" href="{{ URL::asset('site/bootstrap/brand/favico.png') }}" type="image/x-icon"/>
-    <title>MSaúde</title>
-    
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="{{ asset('site/bootstrap/dist/css/bootstrap.min.css') }}">
+@extends('layouts.login_template')
 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
+@section('content')
+<div class="app-auth-body mx-auto">	
+    <div class="app-auth-branding mb-4"><a class="app-logo" href="index.html"><img class="logo-icon mr-2"  src="{{ asset('admin/assets/images/app-logo.svg') }}" alt="logo"></a></div>
+    <h2 class="auth-heading text-center mb-5">Entrar no Portal</h2>
+    <div class="auth-form-container text-left">
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
+        <form class="auth-form login-form" action="{{ route('auth')}}" method="POST" > 
+            @csrf        
+            <div class="mb-3">
+                <label class="sr-only" for="cpf">CPF</label>
+                <input id="cpf" name="cpf" type="text" class="form-control signin-email" placeholder="CPF - Somente números" required >
+                @error('cpf') {{ $message }}@enderror
+            </div><!--//form-group-->
 
-    
-    <!-- Custom styles for this template -->
-    <link href="signin.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('site/bootstrap/sign-in/signin.css') }}">
-  </head>
-  <body class="text-center">
-    
-  <main class="form-signin">
-    <form action="{{ route('auth') }}" method="POST">
-    @csrf
-      <img class="mb-4" src="{{ asset('site/bootstrap/brand/logo.png') }}" alt="" width="200">
-      <h1 class="h3 mb-3 fw-normal">Campanha de Vacinação COVID-19</h1>
-      
-      <label for="inputCpf" class="visually-hidden">CPF (APENAS NUMEROS)</label>
-      <input type="text" id="inputCpf" class="form-control" placeholder="CPF" name="cpf"  required autofocus>
-      @error('cpf')
-        {{ $message }}
-      @enderror
+            <div class="mb-3">
+                <label class="sr-only" for="signin-password">Celular</label>
+                <input id="celular" name="celular" type="text" class="form-control signin-password" placeholder="CELL - Somente números" required>
+                <div class="extra mt-3 row justify-content-between">
+                    @error('celular') {{ $message }}@enderror
+                </div><!--//extra-->
+            </div><!--//form-group-->
 
-      <label for="inputCelular" class="visually-hidden">Celular - WhatsApp</label>
-      <input type="text" id="inputCelular" class="form-control" placeholder="CELULAR COM DDD" name="celular"  required autofocus>
-      @error('celular')
-        {{ $message }}
-      @enderror
+            <div class="text-center">
+                <button type="submit" class="btn app-btn-primary btn-block theme-btn mx-auto">Entrar</button>
+            </div>
+        </form>
+        
+        <div class="auth-option text-center pt-5">Ainda não possue cadastro? Clique <a class="text-link" href="{{ route('register') }}" >Aqui</a>.</div>
+    </div><!--//auth-form-container-->	
 
-      <div class="checkbox mb-3">
-        <label>
-          <a href="{{ route('register') }}">Cadastre-se</a>
-        </label>
-      </div>
-
-      <button class="w-100 btn btn-lg btn-primary" type="submit">Consultar</button>
-      <p class="mt-5 mb-3 text-muted">&copy; Caffeinne Sistemas</p>
-    </form>
-  </main>
-
-
-    
-  </body>
-</html>
+</div><!--//auth-body-->  
+@endsection
