@@ -1,6 +1,6 @@
 <div class="col-md-4">
   <label for="cns" class="form-label">CNS - Cartão SUS</label>
-  <input type="text" class="form-control " id="cns" required  >
+  <input type="text" class="form-control " id="cns"  >
   @error('cns') {{ $message }} @enderror
 </div>
 
