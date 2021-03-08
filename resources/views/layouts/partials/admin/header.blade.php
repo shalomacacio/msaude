@@ -65,6 +65,10 @@
                             </a>
                             <!--//nav-link-->
                         </li>
+                        <li class="nav-item"> 
+                            <br>
+                            <br>
+                        </li>
                         <!--//nav-item-->
                     </ul>
                     <!--//footer-menu-->
