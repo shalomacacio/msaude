@@ -81,7 +81,7 @@
                             <!--//app-card-header-->
                             <div class="app-card-body px-4">
 
-                                <div class="intro mb-3">Maranguape foi umas das primeira cidades do Ceará a iniciar a vacinação contra a COVID-19. A Prefeitura montou uma força-tarefa para levar adiante o Plano de imunização Municipal, e segue empenhada em dar continuidade ao cronograma das vacinações.</div>
+                                <div class="intro mb-3">Maranguape foi umas das primeiras cidades do Ceará a iniciar a vacinação contra a COVID-19. A Prefeitura montou uma força-tarefa para levar adiante o Plano de imunização Municipal, e segue empenhada em dar continuidade ao cronograma das vacinações.</div>
                                 <ul class="list-unstyled">
                                     <li>
                                         <svg width="1em" height="1em" viewBox="0 0 16 16"
