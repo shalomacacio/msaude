@@ -36,8 +36,7 @@
                 <div class="row g-4 settings-section">
                   <div class="col-12 col-md-4">
                       <h3 class="section-title">Comorbidades</h3>
-                      <div class="section-intro">Settings section intro goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="help.html">Learn more</a></div>
-                  </div>
+                      <div class="section-intro">Confira seus dados pessoais, se tiver qualquer dúvida entre em contato conosco <a href="{{ route('pacientes.index') }}">Clique Aqui</a></div>                  </div>
                   <div class="col-12 col-md-8">
                       <div class="app-card app-card-settings shadow-sm p-4">
 
