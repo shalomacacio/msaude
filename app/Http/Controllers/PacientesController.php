@@ -160,7 +160,7 @@ class PacientesController extends Controller
     {
         $cpf = Auth::user()->cpf;
 
-        $paciente = Paciente::where('cpf', $cpf)->firstOrFail();
+        $paciente = Paciente::where('cpf', $cpf)->first();
 
         if (request()->wantsJson()) {
 
@@ -169,7 +169,7 @@ class PacientesController extends Controller
             ]);
         }
 
-        if(!$paciente->comorbidades->exists()){
+        if(!$paciente){
             return redirect()->route('pacientes.create');
         }
 
