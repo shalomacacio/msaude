@@ -159,11 +159,9 @@ class PacientesController extends Controller
     public function showPaciente()
     {
         $cpf = Auth::user()->cpf;
-
         $paciente = Paciente::where('cpf', $cpf)->first();
 
         if (request()->wantsJson()) {
-
             return response()->json([
                 'data' => $paciente,
             ]);
@@ -172,10 +170,8 @@ class PacientesController extends Controller
         if(!$paciente){
             return redirect()->route('pacientes.create');
         }
-
         return view('pacientes.show', compact('paciente'));
     }
-
 
     public function showComorb()
     {

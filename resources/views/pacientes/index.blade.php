@@ -30,7 +30,7 @@
                                     </div>
                                     <!--//col-->
                                     <div class="col-auto">
-                                        <h4 class="app-card-title">Need more help?</h4>
+                                        <h4 class="app-card-title">Dúvidas? Fale conosco:</h4>
                                     </div>
                                     <!--//col-->
                                 </div>
@@ -38,16 +38,16 @@
                             </div>
                             <!--//app-card-header-->
                             <div class="app-card-body px-4">
-                                <div class="intro mb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                                    aliquet eros vel diam semper mollis.</div>
+
+                                <div class="intro mb-3">Entre em contato conosco do Telefone ou Whatsapp</div>
                                 <ul class="list-unstyled">
-                                    <li><strong>Tel:</strong> 0800 1234 5678</li>
-                                    <li><strong>Email:</strong> <a href="#">support@website.com</a></li>
+                                    <li><strong>Tel 1:</strong> 0800 0000 0000</li>
+                                    <li><strong>Tel 2:</strong> 0800 0000 0000</li>
                                 </ul>
                             </div>
                             <!--//app-card-body-->
                             <div class="app-card-footer p-4 mt-auto">
-                                <a class="btn app-btn-secondary" href="#">Start Live Chat</a>
+                                <a class="btn app-btn-secondary" href="#">Whatsapp</a>
                             </div>
                             <!--//app-card-footer-->
                         </div>
@@ -72,7 +72,7 @@
                                     </div>
                                     <!--//col-->
                                     <div class="col-auto">
-                                        <h4 class="app-card-title">Want to upgrade?</h4>
+                                        <h4 class="app-card-title">O que é Doses de Esperança?</h4>
                                     </div>
                                     <!--//col-->
                                 </div>
@@ -81,8 +81,7 @@
                             <!--//app-card-header-->
                             <div class="app-card-body px-4">
 
-                                <div class="intro mb-3">Quisque non nisi odio. Proin at viverra enim. Ut vitae ligula
-                                    neque. Praesent id ligula ut sem suscipit eleifend id vel ex.</div>
+                                <div class="intro mb-3">Maranguape foi umas das primeira cidades do Ceará a iniciar a vacinação contra a COVID-19. A Prefeitura montou uma força-tarefa para levar adiante o Plano de imunização Municipal, e segue empenhada em dar continuidade ao cronograma das vacinações.</div>
                                 <ul class="list-unstyled">
                                     <li>
                                         <svg width="1em" height="1em" viewBox="0 0 16 16"
@@ -90,7 +89,7 @@
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path fill-rule="evenodd"
                                                 d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
-                                        </svg> Phasellus varius vel risus vel aliquam.
+                                        </svg> Se precisar sair, use a máscara facial.
                                     </li>
                                     <li>
                                         <svg width="1em" height="1em" viewBox="0 0 16 16"
@@ -98,7 +97,7 @@
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path fill-rule="evenodd"
                                                 d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
-                                        </svg> Maecenas varius nulla.
+                                        </svg> Lave as mãos com água e sabão ou use álcool gel 70%.
                                     </li>
                                     <li>
                                         <svg width="1em" height="1em" viewBox="0 0 16 16"
@@ -106,14 +105,15 @@
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path fill-rule="evenodd"
                                                 d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
-                                        </svg> Lorem ipsum dolor sit amet.
+                                        </svg> Mantenha 2 metros de distância de qualquer pessoa.
                                     </li>
 
                                 </ul>
                             </div>
                             <!--//app-card-body-->
                             <div class="app-card-footer p-4 mt-auto">
-                                <a class="btn app-btn-primary" href="#">Upgrade Now</a>
+                                        </svg> Mantenha 2 metros de distância de qualquer pessoa.
+                                <a class="btn app-btn-primary" href="{{ route('pacientes.index') }}">Ir pra Home</a>
                             </div>
                             <!--//app-card-footer-->
                         </div>
