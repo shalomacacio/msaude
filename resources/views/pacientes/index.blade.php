@@ -112,7 +112,6 @@
                             </div>
                             <!--//app-card-body-->
                             <div class="app-card-footer p-4 mt-auto">
-                                        </svg> Mantenha 2 metros de distância de qualquer pessoa.
                                 <a class="btn app-btn-primary" href="{{ route('pacientes.index') }}">Ir pra Home</a>
                             </div>
                             <!--//app-card-footer-->
