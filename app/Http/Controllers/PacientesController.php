@@ -121,7 +121,8 @@ class PacientesController extends Controller
     {
         try {
 
-            $this->validator->with( $request->all() )->passesOrFail();
+            // $this->validator->with( $request->all() )->passesOrFail(ValidatorInterface::RULE_CREATE);
+            $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
 
             $paciente = $this->repository->create($request->all());
 
@@ -159,7 +160,7 @@ class PacientesController extends Controller
     {
         $cpf = Auth::user()->cpf;
 
-        $paciente = Paciente::where('cpf', $cpf)->first();
+        $paciente = Paciente::where('cpf', $cpf)->firstOrFail();
 
         if (request()->wantsJson()) {
 
@@ -168,7 +169,7 @@ class PacientesController extends Controller
             ]);
         }
 
-        if(count($paciente->comorbidades) <= 0){
+        if(!$paciente->comorbidades->exists()){
             return redirect()->route('pacientes.create');
         }
 

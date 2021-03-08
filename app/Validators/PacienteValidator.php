@@ -24,22 +24,17 @@ class PacienteValidator extends LaravelValidator
             'celular' => 'required|max:11',
             'cep' => 'numeric',
             'ubs_id' => 'required',
+            'dt_nascimento' => 'required',
+            'sexo' => 'required',
+            
+
 
         ],
         ValidatorInterface::RULE_UPDATE => [],
     ];
 
-    protected $messages = [
-        'nome.required'=>'Este campo é obrigatório',
-        'cns.required'=>'Este campo é obrigatório',
-        'cns.unique'=>'Este paciente já existe',
-        'cns.min'=>'Mínimo 15 dígitos',
-        'cns.max'=>'Máximo 15 dígitos',
-        'celular.min'=>'Celular invalido',
-        'celular.max'=>'Celular invalido',
-        'cep.numeric'=>'Use somente numeros',
-        'cpf.unique'=>'Este cpf já existe',
-        'cpf.required'=>'Este campo é obrigatório',
-
+    protected $attributes = [
+        'dt_nascimento' => 'data de nascimento',
+        'ubs_id' => 'UBS',
     ];
 }

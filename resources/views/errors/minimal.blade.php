@@ -56,6 +56,7 @@
 
             <div class="message" style="padding: 10px;">
                 @yield('message')
+                <a  type="button" href="{{ route('pacientes.index') }}"> Pagina Inicial</a>
             </div>
         </div>
     </body>

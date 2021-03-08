@@ -7,12 +7,13 @@
         <div class="app-content pt-3 p-md-3 p-lg-4">
             <div class="container-xl">
                 <h1 class="app-page-title">Cadastro</h1>
+
                 <hr class="mb-4">
                 
                 <div class="row g-4 settings-section">
                     <div class="col-12 col-md-4">
                         <h3 class="section-title">Dados de Acesso</h3>
-                        <div class="section-intro">informações de cadastramento para ter acesso a plataforma e acompanhamento 
+                        <div class="section-intro">Informações de cadastramento para ter acesso e acompanhamento 
                         dos resultados e notificações.</div>
                     </div>
                     <div class="col-12 col-md-8">
@@ -21,28 +22,17 @@
                             <div class="app-card-body">
                                 <form class="settings-form">
                                     <div class="mb-3">
-                                        <label for="nome" class="form-label">Nome Completo<span class="ml-2"
-                                                data-container="body" data-toggle="popover" data-trigger="hover"
-                                                data-placement="top"
-                                                data-content="Digite Seu Nome Completo"><svg
-                                                    width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle"
-                                                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                    <path fill-rule="evenodd"
-                                                        d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                                                    <path
-                                                        d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z" />
-                                                    <circle cx="8" cy="4.5" r="1" />
-                                                </svg></span></label>
+                                        <label for="nome" class="form-label @error('nome') is-invalid @enderror"> Nome Completo </label>
                                         <input type="text" class="form-control" id="nome" placeholder="{{ Auth::user()->nome }}" disabled>
-                                        @error('nome') {{ $message }} @enderror
+                                       @if($errors->any()) {{ $errors->first('nome')}} @endif
                                     </div>
                                     <div class="mb-3">
-                                        <label for="cpf" class="form-label">CPF</label>
+                                        <label for="cpf" class="form-label @error('dt_nascimento') is-invalid @enderror">CPF</label>
                                         <input type="text" class="form-control" id="cpf"
                                             placeholder="{{ Auth::user()->cpf }}" disabled>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="celular" class="form-label">Celular - WhatsApp</label>
+                                        <label for="celular" class="form-label @error('dt_nascimento') is-invalid @enderror">Celular - WhatsApp</label>
                                         <input type="text" class="form-control" id="celular"
                                             placeholder="{{ Auth::user()->celular }}" disabled>
                                     </div>
@@ -61,8 +51,7 @@
                 <div class="row g-4 settings-section">
                   <div class="col-12 col-md-4">
                       <h3 class="section-title">Dados Pessoais</h3>
-                      <div class="section-intro">Settings section intro goes here. Lorem ipsum dolor sit amet, consectetur
-                          adipiscing elit. <a href="help.html">Learn more</a></div>
+                      <div class="section-intro">Preencha todos os dados corretamente para agilizar seu processo de agendamento.</div>
                   </div>
                   <div class="col-12 col-md-8">
                       <div class="app-card app-card-settings shadow-sm p-4">
@@ -71,75 +60,73 @@
                               <form class="settings-form"  action="{{ route('pacientes.store') }}" method="POST">
                                 @csrf
                                 <div class="mb-3">
-                                  <label for="dt_nascimento" class="form-label">Data de Nascimento</label>
+                                  <label for="dt_nascimento" class="form-label @error('dt_nascimento') is-invalid @enderror">Data de Nascimento</label>
                                   <input type="date" class="form-control" id="dt_nascimento" name="dt_nascimento">
-                                  @error('dt_nascimento') {{ $message }} @enderror
+                                  <div class="invalid-feedback">@error('dt_nascimento') {{ $message }} @enderror</div>
                                 </div>
-
+                                                                
                                 <div class="mb-3">
-                                  <label for="sexo" class="form-label">Sexo</label>
+                                  <label for="sexo" class="form-label @error('sexo') is-invalid @enderror">Sexo</label>
                                   <select class="form-control" id="sexo" name="sexo">
                                     <option selected="" value=" ">--SELECIONE--</option>
                                     <option value="M">MASCULINO</option>
                                     <option value="F">FEMININO</option>
                                   </select>
-                                  @error('sexo') {{ $message }} @enderror
+                                  <div class="invalid-feedback">@error('sexo') {{ $message }} @enderror</div>
                                 </div>
 
                                 <div class="mb-3">
-                                  <label for="rua" class="form-label">Endereço</label>
+                                  <label for="rua" class="form-label @error('rua') is-invalid @enderror">Endereço</label>
                                   <input type="text" class="form-control" id="rua" name="rua">
-                                  @error('rua') {{ $message }} @enderror
+                                  <div class="invalid-feedback">@error('rua') {{ $message }} @enderror</div>
                                 </div>
 
                                 <div class="mb-3">
-                                  <label for="num" class="form-label">Nº</label>
+                                  <label for="num" class="form-label @error('num') is-invalid @enderror">Nº</label>
                                   <input type="text" class="form-control" id="num" name="num">
-                                  @error('num') {{ $message }} @enderror
+                                  <div class="invalid-feedback">@error('num') {{ $message }} @enderror</div>
                                 </div>
 
                                 <div class="mb-3">
-                                  <label for="bairro" class="form-label">Bairro</label>
+                                  <label for="bairro" class="form-label @error('bairro') is-invalid @enderror">Bairro</label>
                                   <select class="form-control" name="bairro">
                                     <option selected="" value=" ">--SELECIONE--</option>
                                     @foreach ($bairros as $bairro)
                                     <option value="{{ $bairro->id }}">{{ $bairro->nome }}</option>
                                     @endforeach
                                   </select>
-                                  @error('bairro') {{ $message }} @enderror
+                                  <div class="invalid-feedback">@error('bairro') {{ $message }} @enderror</div>
                                 </div>
 
                                   <div class="mb-3">
-                                      <label for="cns" class="form-label">CNS - CARTÃO NACIONAL DE SAÚDE<span class="ml-2"
-                                              data-container="body" data-toggle="popover" data-trigger="hover"
-                                              data-placement="top"
-                                              data-content="Também conhecido com CARTEIRA DO SUS, possui 15 digitos que precisar ser inseridos corretamente "><svg
-                                                  width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle"
-                                                  fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                  <path fill-rule="evenodd"
-                                                      d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                                                  <path
-                                                      d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z" />
-                                                  <circle cx="8" cy="4.5" r="1" />
-                                              </svg></span></label>
+                                      <label for="cns" class="form-label @error('cns') is-invalid @enderror">CNS - CARTÃO NACIONAL DE SAÚDE
+                                        <span class="ml-2" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top"
+                                            data-content="Número da Carteira do SUS com 15 dígitos"> @include('layouts.partials.admin.svg_i')
+                                        </span>
+                                      </label>
                                       <input type="text" class="form-control" id="cns" name="cns" >
-                                      @error('cns') {{ $message }} @enderror
+                                      <div class="invalid-feedback">@error('cns') {{ $message }} @enderror</div>
                                   </div>
 
                                   <div class="mb-3">
-                                      <label for="ubs" class="form-label">UBS - Unidade Básica de Sáúde</label>
+                                      <label for="ubs" class="form-label @error('ubs_id') is-invalid @enderror">UBS - Unidade Básica de Sáúde
+                                        <span class="ml-2" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top"
+                                            data-content="POSTO DE SAÚDE"> @include('layouts.partials.admin.svg_i')
+                                        </span>
+                                      </label>
                                       <select class="form-control" id="ubs_id" name="ubs_id" required>
-                                        <option selected="" value="option-1">--SELECIONE--</option>
+                                        <option selected="" value=" ">--SELECIONE--</option>
                                         @foreach ($ubs as $u)
                                         <option value="{{ $u->id }}">{{ $u->nome }}</option>
                                         @endforeach
                                     </select>
-                                    @error('ubs') {{ $message }} @enderror
+                                    <div class="invalid-feedback">@error('ubs_id') {{ $message }} @enderror</div>
                                   </div>
 
                                   <div class="mb-3">
-                                      <label for="agente_saude" class="form-label">Agente de Saúde</label>
+                                      <label for="agente_saude" class="form-label @error('agente_saude') is-invalid @enderror">Agente de Saúde</label>
                                       <input type="text" class="form-control" id="agente_saude" name="agente_saude">
+                                      <div class="invalid-feedback">@error('agente_saude') {{ $message }} @enderror</div>
                                   </div>
 
                                   <button type="submit" class="btn app-btn-primary" >Salvar Dados</button>
