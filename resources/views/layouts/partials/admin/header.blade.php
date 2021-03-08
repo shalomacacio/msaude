@@ -37,7 +37,7 @@
         <div class="sidepanel-inner d-flex flex-column">
             <a href="#" id="sidepanel-close" class="sidepanel-close d-xl-none">&times;</a>
             <div class="app-branding">
-                <a class="app-logo" href="{{ route('pacientes.index') }}"><img class="logo-icon mr-2" src="{{ asset('admin/assets/images/app-logo.svg') }}"
+                <a class="app-logo" href="{{ route('pacientes.index') }}"><img class="logo-icon mr-2" src="{{ asset('admin/assets/images/favico.png') }}"
                         alt="logo"><span class="logo-text">MSAÚDE</span></a>
 
             </div>

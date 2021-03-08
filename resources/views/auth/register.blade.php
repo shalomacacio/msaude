@@ -3,7 +3,7 @@
 @section('content')
     
 <div class="app-auth-body mx-auto">	
-  <div class="app-auth-branding mb-4"><a class="app-logo" href="index.html"><img class="logo-icon mr-2" src="{{ asset('admin/assets/images/app-logo.svg') }}" alt="logo"></a></div>
+  <div class="app-auth-branding mb-4"><a class="app-logo" href="index.html"><img class="logo-icon mr-2" src="{{ asset('admin/assets/images/favico.png') }}"  alt="logo"></a></div>
 <h2 class="auth-heading text-center mb-4">Cadastre-se </h2>					
 
 <div class="auth-form-container text-left mx-auto">
