@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 @include('layouts.partials.admin.login_head')
 
 <body class="app app-login p-0"> 
@@ -35,7 +35,11 @@
     
     </div><!--//row-->
 
+    <script src="{{ asset('admin/assets/plugins/popper.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
 
+    <!-- Page Specific JS -->
+    <script src="{{ asset('admin/assets/js/app.js') }}"></script>
 </body>
 </html> 
 

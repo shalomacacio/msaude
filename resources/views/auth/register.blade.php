@@ -17,16 +17,17 @@
     </div>
 
     <div class="mb-3">
-      <label class="sr-only" for="cpf">CPF</label>
-      <input id="cpf" name="cpf" type="text" class="form-control" placeholder="CPF - Somente números" required>
-      @error('nome') {{ $message }} @enderror
-    </div>
+      <label class="sr-only @error('cpf') is-invalid @enderror" for="cpf">CPF</label>
+      <input id="cpf" name="cpf" type="text" class="form-control " placeholder="CPF" required>
+      <div class="invalid-feedback">@error('cpf') {{ $message }} @enderror</div>
+    </div><!--//form-group-->
 
     <div class="mb-3">
-      <label class="sr-only" for="celular">CPF</label>
-      <input id="" namecelular="celularcpf" type="text" class="form-control" placeholder="CELULAR - Somente números" required>
-      @error('celular') {{ $message }} @enderror
-    </div>
+        <label class="sr-only @error('celular') is-invalid @enderror" for="celular">Celular</label>
+        <input id="celular" name="celular" type="text" class="form-control " placeholder="DDD + Nº Celular" required>
+        <div class="invalid-feedback">@error('celular') {{ $message }} @enderror</div>
+    </div><!--//form-group-->
+
 
     <div class="extra mb-3">
     </div><!--//extra-->

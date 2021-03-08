@@ -9,17 +9,16 @@
         <form class="auth-form login-form" action="{{ route('auth')}}" method="POST" > 
             @csrf        
             <div class="mb-3">
-                <label class="sr-only" for="cpf">CPF</label>
-                <input id="cpf" name="cpf" type="text" class="form-control signin-email" placeholder="CPF - Somente números" required >
-                @error('cpf') {{ $message }}@enderror
+                <label class="sr-only @error('cpf') is-invalid @enderror" for="cpf">CPF</label>
+                <input id="cpf" name="cpf" type="text" class="form-control " placeholder="CPF" required>
+                <div class="invalid-feedback">@error('cpf') {{ $message }} @enderror</div>
             </div><!--//form-group-->
 
+
             <div class="mb-3">
-                <label class="sr-only" for="signin-password">Celular</label>
-                <input id="celular" name="celular" type="text" class="form-control signin-password" placeholder="CELL - Somente números" required>
-                <div class="extra mt-3 row justify-content-between">
-                    @error('celular') {{ $message }}@enderror
-                </div><!--//extra-->
+                <label class="sr-only @error('celular') is-invalid @enderror" for="celular">Celular</label>
+                <input id="celular" name="celular" type="text" class="form-control " placeholder="DDD + Nº Celular" required>
+                <div class="invalid-feedback">@error('celular') {{ $message }} @enderror</div>
             </div><!--//form-group-->
 
             <div class="text-center">
@@ -27,7 +26,7 @@
             </div>
         </form>
         
-        <div class="auth-option text-center pt-5">Ainda não possue cadastro? Clique <a class="text-link" href="{{ route('register') }}" >Aqui</a>.</div>
+        <div class="auth-option text-center pt-5">Ainda não tem cadastro? Clique <a class="text-link" href="{{ route('register') }}" >Aqui</a>.</div>
     </div><!--//auth-form-container-->	
 
 </div><!--//auth-body-->  

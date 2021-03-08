@@ -21,11 +21,13 @@
 
                             <div class="app-card-body">
                                 <form class="settings-form">
+                                    
                                     <div class="mb-3">
                                         <label for="nome" class="form-label @error('nome') is-invalid @enderror"> Nome Completo </label>
                                         <input type="text" class="form-control" id="nome" placeholder="{{ Auth::user()->nome }}" disabled>
                                        @if($errors->any()) {{ $errors->first('nome')}} @endif
                                     </div>
+
                                     <div class="mb-3">
                                         <label for="cpf" class="form-label @error('dt_nascimento') is-invalid @enderror">CPF</label>
                                         <input type="text" class="form-control" id="cpf"
