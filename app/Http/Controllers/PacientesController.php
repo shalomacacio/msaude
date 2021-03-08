@@ -99,13 +99,13 @@ class PacientesController extends Controller
             if($c == 1){
                 $comorbidade = $this->comorbidadeRepository->find($c); 
                 $paciente->comorbidades()->save($comorbidade);
-                return redirect()->route('showComorb');
+                return redirect()->route('showPaciente');
             }
             $comorbidade = $this->comorbidadeRepository->find($c);
             $paciente->comorbidades()->save($comorbidade);
         }
         
-        return redirect()->route('showComorb');
+        return redirect()->route('showPaciente');
     }
 
     /**

@@ -22,7 +22,8 @@ class PacienteValidator extends LaravelValidator
             'nome' => 'required|max:50',
             'cpf' => 'required|cpf|unique:pacientes',
             'celular' => 'required|max:11',
-            'cep' => 'numeric'
+            'cep' => 'numeric',
+            'ubs_id' => 'required',
 
         ],
         ValidatorInterface::RULE_UPDATE => [],

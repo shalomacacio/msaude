@@ -51,7 +51,7 @@
                                 <circle cx="3.5" cy="10.5" r=".5" />
                             </svg>
                         </span>
-                        <span class="nav-link-text">Orders</span>
+                        <span class="nav-link-text">Notificações </span>
                     </a>
                     <!--//nav-link-->
                 </li>

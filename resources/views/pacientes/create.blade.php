@@ -57,7 +57,7 @@
                 <!--//row-->
                 <hr class="my-4">
 
-
+                @if(!Auth::user()->paciente )
                 <div class="row g-4 settings-section">
                   <div class="col-12 col-md-4">
                       <h3 class="section-title">Dados Pessoais</h3>
@@ -128,7 +128,7 @@
 
                                   <div class="mb-3">
                                       <label for="ubs" class="form-label">UBS - Unidade Básica de Sáúde</label>
-                                      <select class="form-control" id="ubs" name="ubs">
+                                      <select class="form-control" id="ubs_id" name="ubs_id" required>
                                         <option selected="" value="option-1">--SELECIONE--</option>
                                         @foreach ($ubs as $u)
                                         <option value="{{ $u->id }}">{{ $u->nome }}</option>
@@ -151,14 +151,15 @@
                               </form>
                           </div>
                           <!--//app-card-body-->
-                          @endif
+                          
                       </div>
                       <!--//app-card-->
                   </div>
               </div>
               <!--//row-->
               <hr class="my-4">
-
+              @endif
+              
                 <div class="row g-4 settings-section">
                     <div class="col-12 col-md-4">
                         <h3 class="section-title">Comorbidades</h3>
@@ -168,10 +169,11 @@
                     <div class="col-12 col-md-8">
                         <div class="app-card app-card-settings shadow-sm p-4">
                             <div class="app-card-body">
-                                <form class="settings-form">
+                                <form class="settings-form" action="{{ route('pacientes.comorbCreate') }}" method="POST">
+                                    @csrf
                                     @foreach ($comorbidades as $comorbidade)
                                     <div class="form-check form-switch mb-3">
-                                        <input class="form-check-input" type="checkbox" id="settings-switch-2">
+                                        <input class="form-check-input" type="checkbox" name="comorbidades[]" value="{{ $comorbidade->id }}">
                                         <label class="form-check-label" for="settings-switch-2">{{ $comorbidade->descricao }}</label>
                                     </div>
                                     @endforeach
@@ -187,6 +189,7 @@
                 </div>
                 <!--//row-->
                 <hr class="my-4">
+                
             </div>
             <!--//container-fluid-->
         </div>
