@@ -54,7 +54,7 @@ class PacientesController extends Controller
         $this->ubsRepository = $ubsRepository;
         $this->comorbidadeRepository = $comorbidadeRepository;
         $this->middleware('checkpaciente')->only('comorbCreate');
-        $this->middleware('checkcomorb')->only('showPaciente');
+        $this->middleware(['checkpaciente', 'checkcomorb'])->only('showPaciente');
     }
 
     /**
