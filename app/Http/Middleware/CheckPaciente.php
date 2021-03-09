@@ -23,7 +23,7 @@ class CheckPaciente
 
         $paciente = Paciente::where('cpf', Auth::user()->cpf)->first();;
         if(!$paciente){
-            return redirect()->back()->with('message', $response['message']);
+            return redirect()->route('pacientes.create')->with('message', $response['message']);
         }
         return $next($request);
     }
