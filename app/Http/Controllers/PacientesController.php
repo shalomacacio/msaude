@@ -53,7 +53,8 @@ class PacientesController extends Controller
         $this->bairroRepository = $bairroRepository;
         $this->ubsRepository = $ubsRepository;
         $this->comorbidadeRepository = $comorbidadeRepository;
-        $this->middleware('comorbcheck')->only('comorbCreate');
+        $this->middleware('checkpaciente')->only('comorbCreate');
+        $this->middleware('checkcomorb')->only('showPaciente');
     }
 
     /**
@@ -96,16 +97,16 @@ class PacientesController extends Controller
         $paciente = Paciente::where('cpf', Auth::user()->cpf)->first();
         $comorbidades = $request->comorbidades;
         
-        //salva no relacionamento
-        // foreach ($comorbidades as $c) {
-        //     if($c == 1){
-        //         $comorbidade = $this->comorbidadeRepository->find($c); 
-        //         $paciente->comorbidades()->save($comorbidade);
-        //         return redirect()->route('showPaciente');
-        //     }
-        //     $comorbidade = $this->comorbidadeRepository->find($c);
-        //     $paciente->comorbidades()->save($comorbidade);
-        // }
+        // salva no relacionamento
+        foreach ($comorbidades as $c) {
+            if($c == 1){
+                $comorbidade = $this->comorbidadeRepository->find($c); 
+                $paciente->comorbidades()->save($comorbidade);
+                return redirect()->route('showPaciente');
+            }
+            $comorbidade = $this->comorbidadeRepository->find($c);
+            $paciente->comorbidades()->save($comorbidade);
+        }
         
         return redirect()->route('showPaciente');
     }
