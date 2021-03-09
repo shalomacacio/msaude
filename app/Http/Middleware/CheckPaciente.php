@@ -18,7 +18,7 @@ class CheckPaciente
     public function handle($request, Closure $next)
     {
         $response = [
-            'message' => 'Ops!, Por favor, SALVES OS DADOS PESSOAIS antes de preencher COMORBIDADES!'
+            'message' => 'Ops! Por favor, SALVES OS DADOS PESSOAIS antes de preencher COMORBIDADES!'
         ];
 
         $paciente = Paciente::where('cpf', Auth::user()->cpf)->first();;

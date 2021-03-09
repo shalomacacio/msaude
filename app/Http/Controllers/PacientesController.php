@@ -129,7 +129,7 @@ class PacientesController extends Controller
             $paciente = $this->repository->create($request->all());
 
             $response = [
-                'message' => 'Próxim Passo : Preencher as COMORBIDADES !',
+                'message' => 'Próximo Passo -> Preencher as COMORBIDADES !',
                 'data'    => $paciente->toArray(),
             ];
 
