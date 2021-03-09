@@ -23,7 +23,7 @@ class CheckComorb
 
         $paciente = Paciente::where('cpf', Auth::user()->cpf)->first();;
         if(count($paciente->comorbidades) <= 0 ){
-            return redirect()->back()->with('message', $response['message']);  
+            return redirect()->route('pacientes.create')->with('message', $response['message']);  
         }
         return $next($request);
     }
