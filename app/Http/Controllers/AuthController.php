@@ -50,13 +50,15 @@ class AuthController extends Controller
                     ]
                 );
 
-                User::create([
+                $user =  User::create([
                     'nome' => $request->nome,
                     'cpf' => $request->cpf,
                     'celular' => $request->celular
                 ]);
 
-                return redirect()->route('login');  
+                Auth::login($user);
+
+                return redirect()->route('pacientes.create');  
         
             } catch (\Illuminate\Validation\ValidationException $e) {
                 // dd($e->errors());
