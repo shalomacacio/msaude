@@ -7,7 +7,7 @@
         <div class="app-content pt-3 p-md-3 p-lg-4">
             <div class="container-xl">
                 <h1 class="app-page-title">Cadastro</h1>
-
+                @include('layouts.partials.validators.alert-session')
                 <hr class="mb-4">
                 
                 <div class="row g-4 settings-section">
@@ -103,7 +103,7 @@
                                   <div class="mb-3">
                                       <label for="cns" class="form-label @error('cns') is-invalid @enderror">CNS - CARTÃO NACIONAL DE SAÚDE
                                         <span class="ml-2" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top"
-                                            data-content="Número da Carteira do SUS com 15 dígitos"> @include('layouts.partials.admin.svg_i')
+                                            data-content="Número da Carteira do SUS com 15 dígitos"> @include('layouts.partials.admin.svg.bi-info-circle')
                                         </span>
                                       </label>
                                       <input type="text" class="form-control" id="cns" name="cns" >
@@ -113,7 +113,7 @@
                                   <div class="mb-3">
                                       <label for="ubs" class="form-label @error('ubs_id') is-invalid @enderror">UBS - Unidade Básica de Sáúde
                                         <span class="ml-2" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top"
-                                            data-content="POSTO DE SAÚDE"> @include('layouts.partials.admin.svg_i')
+                                            data-content="POSTO DE SAÚDE"> @include('layouts.partials.admin.svg.bi-info-circle')
                                         </span>
                                       </label>
                                       <select class="form-control" id="ubs_id" name="ubs_id" required>
@@ -155,6 +155,7 @@
                         <div class="section-intro">Settings section intro goes here. Duis velit massa, faucibus non
                             hendrerit eget.</div>
                     </div>
+                   
                     <div class="col-12 col-md-8">
                         <div class="app-card app-card-settings shadow-sm p-4">
                             <div class="app-card-body">

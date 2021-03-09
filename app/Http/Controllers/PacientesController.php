@@ -16,6 +16,7 @@ use App\Repositories\PacienteRepository;
 use App\Repositories\UbsRepository;
 use App\Validators\PacienteValidator;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Middleware\CheckPaciente;
 
 /**
  * Class PacientesController.
@@ -52,6 +53,7 @@ class PacientesController extends Controller
         $this->bairroRepository = $bairroRepository;
         $this->ubsRepository = $ubsRepository;
         $this->comorbidadeRepository = $comorbidadeRepository;
+        $this->middleware('comorbcheck')->only('comorbCreate');
     }
 
     /**
@@ -95,15 +97,15 @@ class PacientesController extends Controller
         $comorbidades = $request->comorbidades;
         
         //salva no relacionamento
-        foreach ($comorbidades as $c) {
-            if($c == 1){
-                $comorbidade = $this->comorbidadeRepository->find($c); 
-                $paciente->comorbidades()->save($comorbidade);
-                return redirect()->route('showPaciente');
-            }
-            $comorbidade = $this->comorbidadeRepository->find($c);
-            $paciente->comorbidades()->save($comorbidade);
-        }
+        // foreach ($comorbidades as $c) {
+        //     if($c == 1){
+        //         $comorbidade = $this->comorbidadeRepository->find($c); 
+        //         $paciente->comorbidades()->save($comorbidade);
+        //         return redirect()->route('showPaciente');
+        //     }
+        //     $comorbidade = $this->comorbidadeRepository->find($c);
+        //     $paciente->comorbidades()->save($comorbidade);
+        // }
         
         return redirect()->route('showPaciente');
     }
