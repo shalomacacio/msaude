@@ -152,8 +152,7 @@
                 <div class="row g-4 settings-section">
                     <div class="col-12 col-md-4">
                         <h3 class="section-title">Comorbidades</h3>
-                        <div class="section-intro">Settings section intro goes here. Duis velit massa, faucibus non
-                            hendrerit eget.</div>
+                        <div class="section-intro">Selecione as comorbidades e clique no botão Salvar Dados.</div>
                     </div>
                    
                     <div class="col-12 col-md-8">
