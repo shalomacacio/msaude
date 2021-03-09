@@ -8,6 +8,7 @@
                 <h1 class="app-page-title">Parabéns, cadastro realizado com sucesso!</h1>
 
                 <div class="row g-4">
+{{--                     
                     <div class="col-12 col-md-6">
                         <div class="app-card app-card-basic d-flex flex-column align-items-start shadow-sm">
                             <div class="app-card-header p-3 border-bottom-0">
@@ -53,7 +54,7 @@
                         </div>
                         <!--//app-card-->
                     </div>
-                    <!--//col-->
+                    <!--//col--> --}}
 
                     <div class="col-12 col-md-6">
                         <div class="app-card app-card-basic d-flex flex-column align-items-start shadow-sm">

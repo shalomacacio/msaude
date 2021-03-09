@@ -27,7 +27,7 @@
 
                 <li class="nav-item">
                     <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-                    <a class="nav-link" href="orders.html">
+                    <a class="nav-link" href="{{ route('comunicados.index')}}">
                         <span class="nav-icon">
                             @include('layouts.partials.admin.svg.bi-cursor')
                         </span>

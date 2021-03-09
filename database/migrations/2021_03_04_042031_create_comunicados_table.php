@@ -18,6 +18,7 @@ class CreateComunicadosTable extends Migration
 		Schema::create('comunicados', function(Blueprint $table) {
             $table->increments('id');
 			$table->unsignedBigInteger('user_id');
+			$table->string('titulo');
 			$table->text('descricao');
 			$table->datetime('dt_envio')->nullable();
 			$table->datetime('dt_resposta')->nullable();
