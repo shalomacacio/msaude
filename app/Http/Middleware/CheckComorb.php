@@ -22,8 +22,8 @@ class CheckComorb
         ];
 
         $paciente = Paciente::where('cpf', Auth::user()->cpf)->first();;
-        if(!$paciente){
-            return redirect()->back()->with('message', $response['message']);
+        if($paciente->comorbidades && count($paciente->comorbidades) <= 0 ){
+            return redirect()->back()->with('message', $response['message']);  
         }
         return $next($request);
     }
