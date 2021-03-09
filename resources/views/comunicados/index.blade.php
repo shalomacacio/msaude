@@ -78,8 +78,8 @@
                     <!--//app-card-footer-->
                 </div>
                 <!--//app-card-->
-
-                <div class="text-center mt-4"><a class="btn app-btn-secondary" href="#">Load more notifications</a></div>
+{{-- 
+                <div class="text-center mt-4"><a class="btn app-btn-secondary" href="#">Load more notifications</a></div> --}}
 
             </div>
             <!--//container-fluid-->
