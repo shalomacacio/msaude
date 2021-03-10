@@ -21,6 +21,7 @@ Route::post('/create', 'AuthController@create')->name('create');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('ubs', 'UbsController');
+    Route::get('/comunicados/faq', 'ComunicadosController@faq')->name('faq');
     Route::resource('comunicados', 'ComunicadosController');
     Route::resource('campanhas', 'CampanhasController');
     Route::get('pacientes/comorbidades', 'PacientesController@comorbidades')->name('pacientes.comorbidades');

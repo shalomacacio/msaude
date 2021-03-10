@@ -38,6 +38,17 @@
                 <!--//nav-item-->
                 <li class="nav-item">
                     <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+                    <a class="nav-link" href="{{ route('faq')}}">
+                        <span class="nav-icon">
+                            @include('layouts.partials.admin.svg.help')
+                        </span>
+                        <span class="nav-link-text">Duvidas ?</span>
+                    </a>
+                    <!--//nav-link-->
+                </li>
+                <!--//nav-item-->
+                <li class="nav-item">
+                    <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
                     <a class="nav-link" href="{{ route('logout')}}">
                         <span class="nav-icon">
                             @include('layouts.partials.admin.svg.download')
