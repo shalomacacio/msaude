@@ -35,6 +35,17 @@
                     </a>
                     <!--//nav-link-->
                 </li>
+                <!--//nav-item-->
+                <li class="nav-item">
+                    <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+                    <a class="nav-link" href="{{ route('logout')}}">
+                        <span class="nav-icon">
+                            @include('layouts.partials.admin.svg.download')
+                        </span>
+                        <span class="nav-link-text">Sair</span>
+                    </a>
+                    <!--//nav-link-->
+                </li>
             </ul>
             <!--//app-menu-->
         </nav>
