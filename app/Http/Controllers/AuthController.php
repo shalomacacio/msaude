@@ -33,11 +33,13 @@ class AuthController extends Controller
         protected function create(Request $request)
         {
             try{
+
+
                 
                 $dados = $request->validate(
                     [
                         'name' => 'required',
-                        'cpf' => 'required|numeric|unique:users|cpf',
+                        'cpf' => 'required|numeric|unique:convidados|cpf',
                         'celular' => 'required|min:11|max:11 ',
                     ],
                     [
@@ -49,6 +51,7 @@ class AuthController extends Controller
                         'celular.max'=>'celular invalido',
                     ]
                 );
+
 
                 $user =  User::create([
                     'name' => $request->name,
