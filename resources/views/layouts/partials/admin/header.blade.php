@@ -19,7 +19,7 @@
 
 
                         <div class="app-utility-item app-user-dropdown dropdown">
-                            {{Auth::user()->nome }}
+                            {{Auth::user()->name }}
                         </div>
                         <!--//app-user-dropdown-->
                     </div>

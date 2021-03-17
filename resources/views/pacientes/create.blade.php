@@ -23,9 +23,9 @@
                                 <form class="settings-form">
                                     
                                     <div class="mb-3">
-                                        <label for="nome" class="form-label @error('nome') is-invalid @enderror"> Nome Completo </label>
-                                        <input type="text" class="form-control" id="nome" placeholder="{{ Auth::user()->nome }}" disabled>
-                                       @if($errors->any()) {{ $errors->first('nome')}} @endif
+                                        <label for="name" class="form-label @error('name') is-invalid @enderror"> Nome Completo </label>
+                                        <input type="text" class="form-control" id="name" placeholder="{{ Auth::user()->name }}" disabled>
+                                       @if($errors->any()) {{ $errors->first('name')}} @endif
                                     </div>
 
                                     <div class="mb-3">

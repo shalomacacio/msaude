@@ -15,13 +15,14 @@ class User extends Authenticatable
      *
      * @var array
      */
+    protected $table = "convidados";
     protected $fillable = [
-        'nome', 'cpf', 'celular',
+        'name', 'cpf', 'celular',
     ];
 
     public function setNomeAttribute($value)
     {
-        $this->attributes['nome'] = strtoupper($value); 
+        $this->attributes['name'] = strtoupper($value); 
     }
 
     // RELACIONAMENTOS
