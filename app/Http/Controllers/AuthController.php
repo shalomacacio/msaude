@@ -36,12 +36,12 @@ class AuthController extends Controller
                 
                 $dados = $request->validate(
                     [
-                        'nome' => 'required',
+                        'name' => 'required',
                         'cpf' => 'required|numeric|unique:users|cpf',
                         'celular' => 'required|min:11|max:11 ',
                     ],
                     [
-                        'nome.required'=>'Este campo é obrigatório',
+                        'name.required'=>'Este campo é obrigatório',
                         'cpf.numeric'=>'Digite apenas números',
                         'cpf.unique'=>'Este cpf já existe',
                         'cpf.required'=>'Este campo é obrigatório',
@@ -51,7 +51,7 @@ class AuthController extends Controller
                 );
 
                 $user =  User::create([
-                    'nome' => $request->nome,
+                    'name' => $request->name,
                     'cpf' => $request->cpf,
                     'celular' => $request->celular
                 ]);

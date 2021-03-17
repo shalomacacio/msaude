@@ -11,9 +11,9 @@
     @csrf
 
     <div class="mb-3">
-      <label class="sr-only @error('nome') is-invalid @enderror" for="cpf">NOME</label>
-      <input id="nome" name="nome" type="text" class="form-control signup-name" placeholder="Nome Completo" required >
-      <div class="invalid-feedback">@error('nome') {{ $message }} @enderror</div>
+      <label class="sr-only @error('name') is-invalid @enderror" for="name">NOME</label>
+      <input id="name" name="name" type="text" class="form-control signup-name" placeholder="Nome Completo" required >
+      <div class="invalid-feedback">@error('name') {{ $message }} @enderror</div>
     </div>
 
     <div class="mb-3">

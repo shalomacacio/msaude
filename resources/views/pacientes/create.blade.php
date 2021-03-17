@@ -133,7 +133,7 @@
 
                                   <button type="submit" class="btn app-btn-primary" >Salvar Dados</button>
                                   
-                                  <input type="hidden" name="nome"  value="{{ Auth::user()->nome }}" >
+                                  <input type="hidden" name="nome"  value="{{ Auth::user()->name }}" >
                                   <input type="hidden" name="cpf"  value="{{ Auth::user()->cpf }}" >
                                   <input type="hidden" name="celular"  value="{{ Auth::user()->celular }}" >
 
