@@ -25,7 +25,7 @@
         @endforeach
 
       <div class="col-12">
-        <button class="btn btn-primary" type="submit">Enviar Dados</button>
+        <button class="btn btn-secondary" type="submit">Salvar Comorbidades</button>
       </div>
 
     </form>

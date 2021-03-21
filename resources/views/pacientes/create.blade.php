@@ -77,7 +77,7 @@
                                   <div class="invalid-feedback">@error('sexo') {{ $message }} @enderror</div>
                                 </div>
 
-                                <div class="mb-3">
+                                <div class="mb-auto">
                                   <label for="rua" class="form-label @error('rua') is-invalid @enderror">Endereço</label>
                                   <input type="text" class="form-control" id="rua" name="rua">
                                   <div class="invalid-feedback">@error('rua') {{ $message }} @enderror</div>
@@ -90,14 +90,14 @@
                                 </div>
 
                                 <div class="mb-3">
-                                  <label for="bairro" class="form-label @error('bairro') is-invalid @enderror">Bairro</label>
-                                  <select class="form-control" name="bairro">
+                                  <label for="bairro_id" class="form-label @error('bairro_id') is-invalid @enderror">Bairro</label>
+                                  <select class="form-control" name="bairro_id">
                                     <option selected="" value=" ">--SELECIONE--</option>
                                     @foreach ($bairros as $bairro)
                                     <option value="{{ $bairro->id }}">{{ $bairro->nome }}</option>
                                     @endforeach
                                   </select>
-                                  <div class="invalid-feedback">@error('bairro') {{ $message }} @enderror</div>
+                                  <div class="invalid-feedback">@error('bairro_id') {{ $message }} @enderror</div>
                                 </div>
 
                                   <div class="mb-3">
