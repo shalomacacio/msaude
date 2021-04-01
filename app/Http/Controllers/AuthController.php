@@ -33,8 +33,6 @@ class AuthController extends Controller
         protected function create(Request $request)
         {
             try{
-
-
                 
                 $dados = $request->validate(
                     [

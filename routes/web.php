@@ -18,6 +18,8 @@ Route::get('/', 'AuthController@register')->name('register');
 Route::post('/auth', 'AuthController@auth')->name('auth');
 Route::get('/login', 'AuthController@login')->name('login');
 Route::post('/create', 'AuthController@create')->name('create');
+Route::get('/vacinados', 'HomeController@vacinados')->name('site.vacinados');
+Route::get('/protocolo', 'HomeController@protocolo')->name('site.protocolo');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('ubs', 'UbsController');
