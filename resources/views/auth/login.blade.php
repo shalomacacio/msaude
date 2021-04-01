@@ -36,12 +36,12 @@
                       <form class="registration-form" id="myForm" action="{{ route('auth') }}" method="POST" >
                         @csrf
                           <div class="form-group mb-4">
-                              <label class=" font-15 sr-only @error('cpf') is-invalid @enderror">Seu CPF:* - somente números</label>
+                              <label class=" font-15 @error('cpf') is-invalid @enderror">Seu CPF:* - somente números</label>
                               <input type="text" class="form-control" id="cpf"  name="cpf" placeholder="">
                               <div class="invalid-feedback">@error('cpf') {{ $message }} @enderror</div>
                           </div>
                           <div class="form-group mb-3">
-                              <label class=" font-15 sr-only @error('celular') is-invalid @enderror">Telefone:*- DDD + Nº</label>
+                              <label class=" font-15 @error('celular') is-invalid @enderror">Telefone:*- DDD + Nº</label>
                               <input type="text" class="form-control" id="celular"  name="celular" placeholder="">
                               <div class="invalid-feedback">@error('celular') {{ $message }} @enderror</div>
                           </div>
