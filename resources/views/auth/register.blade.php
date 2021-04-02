@@ -70,8 +70,8 @@
               <div class="col-lg-8">
                   <div class="text-center mb-5">
                       <h5 class="text-primary text-uppercase small-title">Informações</h5>
-                      <h4 class="mb-3">Baixe o Plano de Operalização e a Lista de Vacinados</h4>
-                      <p>Data da última atualização da Lista dos Vacinados: 31/04/2021. </p>
+                      <h4 class="mb-3">Baixe o Plano de Operacionalização e a Lista de Vacinados</h4>
+                      <p>Data da última atualização da Lista dos Vacinados: 31/03/2021. </p>
                   </div>
               </div>
           </div>

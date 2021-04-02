@@ -107,7 +107,7 @@
                     <div class="text-center mt-4">
                         <i data-feather="home" class="icon-dual-success icons-lg"></i>
                         <h2 class="counter-value text-white mt-4" data-count="47">6</h2>
-                        <p class="font-16 text-white-50">Posto de vacinação</p>
+                        <p class="font-16 text-white-50">Postos de vacinação</p>
                     </div>
                 </div>
             </div>
