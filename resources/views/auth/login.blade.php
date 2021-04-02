@@ -66,7 +66,7 @@
                   <div class="text-center mb-5">
                       <h5 class="text-primary text-uppercase small-title">Informações</h5>
                       <h4 class="mb-3">Baixe o Plano de Operalização e a Lista de Vacinados</h4>
-                      <p>Data da última atualização da Lista dos Vacinados: 31/04/2021. </p>
+                      <p>Data da última atualização da Lista dos Vacinados: 31/03/2021. </p>
                   </div>
               </div>
           </div>
@@ -90,7 +90,7 @@
                       </div>
 
                       <div class="mt-4">
-                          <a href="#" class="btn btn-primary">Ver agora <i data-feather="arrow-right" class="icons-sm ml-1"></i></a>
+                          <a href="{{ asset('pmm/other/vacinados.pdf') }}" download="Lista de Vacinados.pdf" class="btn btn-primary">Download <i data-feather="arrow-right" class="icons-sm ml-1"></i></a>
                       </div>
                   </div>
               </div>
@@ -153,7 +153,7 @@
                       </div>
 
                       <div class="mt-4">
-                          <a href="#" class="btn btn-primary" >Ver agora <i data-feather="arrow-right" class="icons-sm ml-1"></i></a>
+                          <a href="{{ asset('pmm/other/plano.docx') }}" download="Plano Municipal de Vacinacao.docx" class="btn btn-primary" >Download <i data-feather="arrow-right" class="icons-sm ml-1"></i></a>
                       </div>
                   </div>
               </div>

@@ -95,8 +95,8 @@
                       </div>
 
                       <div class="mt-4">
-                          <a href="{{ route('site.vacinados') }}" class="btn btn-primary">Ver agora <i data-feather="arrow-right" class="icons-sm ml-1"></i></a>
-                      </div>
+                        <a href="{{ asset('pmm/other/vacinados.pdf') }}" download="Lista de Vacinados.pdf" class="btn btn-primary">Download <i data-feather="arrow-right" class="icons-sm ml-1"></i></a>
+                    </div>
                   </div>
               </div>
 
@@ -158,8 +158,8 @@
                       </div>
 
                       <div class="mt-4">
-                          <a href="{{ route('site.protocolo') }}" class="btn btn-primary" >Ver agora <i data-feather="arrow-right" class="icons-sm ml-1"></i></a>
-                      </div>
+                        <a href="{{ asset('pmm/other/plano.docx') }}" download="Plano Municipal de Vacinacao.docx" class="btn btn-primary" >Download <i data-feather="arrow-right" class="icons-sm ml-1"></i></a>
+                    </div>
                   </div>
               </div>
 
@@ -181,10 +181,12 @@
 $(document).ready(function(){
   $('#celular').mask('(00) 00000-0000', {'translation': {0: {pattern: /[0-9*]/}}} );
   $('#cpf').mask('000.000.000-00', {'translation': {0: {pattern: /[0-9*]/}}} );
+  $('#login_celular').mask('(00) 00000-0000', {'translation': {0: {pattern: /[0-9*]/}}} );
+  $('#login_cpf').mask('000.000.000-00', {'translation': {0: {pattern: /[0-9*]/}}} );
 });
 
-$("#myForm").submit(function() {
-  $("#cpf, #celular").unmask();
+$("#myForm, #loginForm").submit(function() {
+  $("#cpf, #celular,#login_cpf, #login_celular").unmask();
 });
 
 </script>

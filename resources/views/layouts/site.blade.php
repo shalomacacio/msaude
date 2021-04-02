@@ -45,7 +45,6 @@
                     <li class="nav-item active">
                         <a href="#home" class="nav-link">Início</a>
                     </li>
-
                     <li class="nav-item">
                         <a href="#informa" class="nav-link">Informações</a>
                     </li>
@@ -56,8 +55,13 @@
                         <a href="#faleconosco" class="nav-link">Fale Conosco</a>
                     </li>
                 </ul>
-                <a href="{{ route('login') }}" class="btn btn-success btn-rounded navbar-btn">Já tenho cadastro</a>
-
+                <form class="form-inline mt-4 mt-md-0" id="loginForm" action="{{ route('auth') }}" method="POST">
+                    @csrf
+                    
+                    <input class="form-control form-control-sm" style="width:120px; margin-right:2px" type="text" id="login_cpf" name="login_cpf" placeholder="CPF" aria-label="Cpf">
+                    <input class="form-control form-control-sm" style="width:140px; margin-right:3px"  type="text" id="login_celular" name="login_celular" placeholder="Celular" aria-label="Celular">
+                    <button class="btn btn-outline-success btn-sm" type="submit"> Entrar<i class="mdi mdi-arrow-right ml-2"></i></button>
+                  </form>
             </div>
         </div>
     </nav>

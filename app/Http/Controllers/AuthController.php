@@ -22,7 +22,7 @@ class AuthController extends Controller
         /**Diret to login page if logout */
         public function logout(){
             Auth::logout();
-            return redirect()->route('login');
+            return redirect()->route('register');
         }
       
         /**Diret to register page */
@@ -72,19 +72,19 @@ class AuthController extends Controller
 
             $data =
             [
-                'cpf' => $request->get('cpf'),
-                'celular' => $request->get('celular'),
+                'cpf' => $request->get('login_cpf'),
+                'celular' => $request->get('login_celular'),
             ];
       
             try {
 
-                $user = User::where('cpf', $request->cpf)->first();
+                $user = User::where('cpf', $request->login_cpf)->first();
                 
                 if(!$user){
-                    return Redirect::back()->withErrors(['cpf' => 'CPF não encontrado!']);
+                    return Redirect::back()->withErrors(['login_cpf' => 'CPF não encontrado!']);
                 }
-                if($user->celular != $request->get('celular')){
-                    return Redirect::back()->withErrors(['celular' => 'Celular não encontrado!']);
+                if($user->celular != $request->get('login_celular')){
+                    return Redirect::back()->withErrors(['login_celular' => 'Celular não encontrado!']);
                 }
 
                 $paciente = Paciente::where('cpf', $user->cpf)->first();
