@@ -28,8 +28,8 @@
               <div class="col-lg-4 offset-lg-2">
                   <div class="card mx-auto p-4 rounded mt-5 mt-lg-0">
                       <div class="text-center">
-                          <p class="text-muted mb-2 font-13 text-uppercase">SEJA BEM VINDO,</p>
-                          <h5 class="form-title mb-4">Cadastre-se</h5>
+                          <p class="text-muted mb-2 font-13 text-uppercase"> NÃO TEM CADASTRO?</p>
+                          <h5 class="form-title mb-4">Preencha estes dados:</h5>
                       </div>
 
           
